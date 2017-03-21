@@ -1,7 +1,7 @@
 老规矩，先上图看效果。  
 
 
-![2.gif](http://upload-images.jianshu.io/upload_images/1924341-72ddafba5d10ad98.gif?imageMogr2/auto-orient/strip)
+![2.gif](./2.gif)
 
 
 
@@ -21,7 +21,7 @@ TextView的跑马灯效果也就是指当你只想让TextView单行显示，可�
   
 
 
-![1.png](http://upload-images.jianshu.io/upload_images/1924341-5649c68a187f42ce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![1.png](./1.png)
 
 
 
@@ -32,7 +32,7 @@ TextView的跑马灯效果也就是指当你只想让TextView单行显示，可�
 看下TextView关于跑马灯启动的相关源码你就会更清楚  
 
 
-![2.png](http://upload-images.jianshu.io/upload_images/1924341-f76e41e7680a4321.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![2.png](./2.png)
 
 
 
