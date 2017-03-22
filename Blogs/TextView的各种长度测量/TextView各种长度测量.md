@@ -49,14 +49,49 @@ o，这篇好像是分析篇，没有效果图。不管了，位置占着，老�
 
 **最后用一张图总结一下，我把TextView分成内容区域，内容区域和TextView边界之间的间隔就是padding的值，内容区域包括drawable区域和文字区域，drawable区域和文字区域之间的间隔就是drawablePadding的值，文字区域和TextView之间的间隔就是CompoundPadding的值。**  
   
+![13.png](http://upload-images.jianshu.io/upload_images/1924341-5f1d2aaebafe69ac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
    
 
 # 如何计算每行文字的长度? 
-其实，这里要区分两种概念，文字区域的长度和实际文字的长度，为什么要区分这两种。因为一个TextView不单单只是显示文字而已，他还支持drawable，支持设置padding，所以文字区域的长度就需要减去这些无关的部分。又由于TextView的自动换行策略，每一行显示的文字长度其实不是固定的。再加上，TextView还支持singleLine和maxLines的设置，那么超出显示区域的文字部分长度呢？
+Q：每行文字的长度不就等于TextView的宽度吗？直接getWidth()不就好了？  
+A：再看一下上面那部分内容你就清楚了，只有当TextView宽度设置为wrap_content，且没有背景图或drawable时，文字的长度才等于getWidth();当文字很少，没有填充满时，或是溢出时，文字的长度都得另外计算。  
+
+Q：每行文字的长度不一样长吗？  
+A：因为TextView有自己的换行策略，如下图所示，显然每行的文字长度不一样长。  
+![14.png](http://upload-images.jianshu.io/upload_images/1924341-61e9576369e701af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+Q：文字的长度是指哪段长度？
+A：看需求吧，我觉得通常情况下都是只需要计算显示在屏幕上的可见区域的每行文字的长度即可。还有那么一种需求，当设置了溢出内容用...表示时，那么其实每行文字的实际长度就不止可见区域那么长了。  
+
+那么该如何计算文字的长度呢？单单根据上一部分里的各种Padding值肯定不够，根据各种Padding顶多计算出文字区域的宽度，但实际上每一行文字并不会那么刚刚好占满文字区域的宽度，那么就还得借助其他来进行计算。  
+
+**方法1:TextView.getPaint().measureText(String text)**  
+
+![15.png](http://upload-images.jianshu.io/upload_images/1924341-eeba20225c3e044a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)  
+但这种方法只是测试传入的text在该TextView的配置下的总长度，并不是计算每一行的长度。  
+
+**方法2：TextView.getLayout().getLineWidth(int line)**  
+![16.png](http://upload-images.jianshu.io/upload_images/1924341-7bd8f71d48b34ed4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)  
+TextView对应的是图14，正好，利用方法1验证一下，这个方法计算得到的是不是每行文字的长度。  
+![17.png](http://upload-images.jianshu.io/upload_images/1924341-a68e6414badcba72.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)  
+完全正确，所以说这个方法确实计算得到的是每一行文字的实际长度，注意这里是实际长度，也就是说当设置singleLine属性时，用这个方法测量得到的是一整行文字的长度，包括溢出部分。  
+
 
 # 设置android:maxLines="1"和android:singleLine="true"有什么区别? 
+官方是推荐说不要再使用singleLine,用maxLines="1"代替。但其实这两个的效果是不一样的，官方api接口里有说明,都是英文我就不贴图了，大概翻译下：  
+maxLines：限制TextView的最高高度，大概就是指通过限制行数来限制最高高度。  
+singleLine: 强制设置TextView的文字不换行。  
 
+区别就是：maxLines还是会默认自动进行换行策略，假如一段文字自动换行后有5行，maxLines设置为1，那么就只显示第一行的内容，其他行不显示。  
+但是，如果是设置了singleLine, 那么这段可以有5行的文字将会被强制放在1行里，然后看最多能显示多少字符，剩下的不显示。  
+
+这样的区别就是导致了很多人在使用TextVeiw的跑马灯效果时不能正常工作的状态，所以下面单独列出个问题来讲。  
 # 为什么设置android:maxLines="1"时TextView的跑马灯效果就不能正常工作？
+明白了maxLines="1"和singleLine的区别后，只要再明白跑马灯的原理,就很容易理解为什么设置成maxLines="1"时跑马灯不工作了。我在上一篇博客里写过跑马灯启动的条件，具体的分析可以去上一篇看，这里大概说下。  
+
+跑马灯要启动要同时满足四个条件，其中有一个条件就是这一行的文字长度要大于文字区域的宽度，文字区域的宽度就是TextView的getWidth()扣去ComPoundpaddingLeft再扣去CompoundPaddingRight剩下的长度。
+如果是maxLines="1"的话，那么就像上一问中分析的那样，所有的文字其实已经被自动换行了，只显示第一行，而换行是什么，就是为了让每行文字的长度超过文字区域的宽度才进行的换行，也就是说，如果一段文字经过TextView的换行后，那么每行的文字长度都不会超过文字区域的长度。这样一来，自然就不满足跑马灯的启动条件之一了，跑马灯也就不能正常工作了。  
+singleLine的话，则是不会对一段文字进行换行处理，这样一来，自然就超过了文字区域的长度，所以如果要设置跑马灯效果的话，只能用singleLine不能用maxLines="1"。  
 
 
 
