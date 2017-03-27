@@ -14,7 +14,8 @@ Groovy探索GString http://blog.csdn.net/hivon/article/details/2271000
 Diff with Java http://www.groovy-lang.org/differences.html
 精通Groovy https://www.ibm.com/developerworks/cn/education/java/j-groovy/j-groovy.html
 Gradle for Android https://segmentfault.com/a/1190000004229002
-Gradle Plugin User Guide http://tools.android.com/tech-docs/new-build-system/user-guide
+Gradle Plugin User Guide http://tools.android.com/tech-docs/new-build-system/user-guide 
+Gradle完整指南 http://www.jianshu.com/p/9df3c3b6067a# 
 
 
 学习Gradle：
