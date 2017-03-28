@@ -100,12 +100,30 @@ getValue(author: "dasu") //输出 author:dasu
 ```  
 getValue author: "dasu" //输出 author:dasu
 ```  
-这样子的格式是不是看着觉得很眼熟，没错，就是 build.gradle 里的第一行代码。如果有看过我的上一篇 [build.gradle](http://www.jianshu.com/p/a3805905a5c7) 博客的话，现在对疑问1是不是就有些理解了。  
+这样子的格式是不是看着觉得很眼熟，没错，就是 build.gradle 里的第一行代码。  
+![build.gradle](http://upload-images.jianshu.io/upload_images/1924341-d28331899147847c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)  
+如果有看过我的上一篇 [build.gradle](http://www.jianshu.com/p/a3805905a5c7) 博客的话，现在对疑问1是不是就有些理解了呢。  
+
+上图那代码如果把省略的括号不上的话，大家应该就会熟悉点了  
+```  
+// apply plugin: 'com.android.application'  等效于
+def map = [plugin: 'com.android.application']
+apply(map)
+
+```    
+调用了 apply() 方法，该方法传入一个 map 参数，我们来看看是不是这样，用as查看下源码，如下  
 
 
+这样一来，对 grooovy 的方法括号可以省略是不是有更直白的理解了，然后你再重新去看一下 build.gradle 里的代码，是不是对每一行的代码都有了新的看法了。  
+
+方法的括号可以省略，那么如果方法没有参数，是什么样子的呢？看明白了吧， build.gradle 里的 `defaultConfig{...}`, `buildTypes{...}`, `dependencies{...}` 等等这些其实都是一个个的方法，只是他们没有参数，又省略掉了括号而已。
+
+**赋值语句可以省略掉 '=' 号**  
 
 
-# Groovy Task    
+**集合遍历 each**  
+
+
  
 
 # [官方文档介绍](http://www.groovy-lang.org/documentation.html)  
