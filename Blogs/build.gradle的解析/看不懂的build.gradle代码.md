@@ -1,8 +1,8 @@
 Android Studio 这么强大的工具，就算我们不懂 gradle, groovy， 也照样能借助AS对 Android 项目进行编译、调试、运行、打包等操作。build.gradle 这个文件接触这么久了，基本的项目配置也基本很熟悉了，毕竟每次自动创建的 build.gradle 里的代码就那么几项配置，看一下那些英文单词也基本猜到是什么配置。  
 
-但是，不知道你们会不会跟我一样，在 github 上 clone 大神的项目后，总会发现他们的 build.gradle 里多了很多平常没看见过的代码，而且还看不懂代码要做什么；  
+**但是，不知道你们会不会跟我一样，在 github 上 clone 大神的项目后，总会发现他们的 build.gradle 里多了很多平常没看见过的代码，而且还看不懂代码要做什么；**  
 
-或者是比如当需要进行签名时，网上资料会让你在 Android 标签内加个 signingConfigs， 然后在它里面进行各种配置，比如 storeFile, keyAlias 等等之类的。还有其他类似这种情况，比如当需要打包时，在哪个地方加个什么标签再对它进行各种配置之类的。不知道你们会不会也跟我一样会有这样的疑问，这个标签名怎么来的，为什么要放在这个位置，它里面有哪些属性可以进行配置？  
+或者是比如当需要进行签名时，网上资料会让你在 Android 标签内加个 signingConfigs， 然后在它里面进行各种配置，比如 storeFile, keyAlias 等等之类的。还有其他类似这种情况，比如当需要打包时，在哪个地方加个什么标签再对它进行各种配置之类的。**不知道你们会不会也跟我一样会有这样的疑问，这个标签名怎么来的，为什么要放在这个位置，它里面有哪些属性可以进行配置？**  
 
 疑惑久了，总想去了解下这是为什么，所以花了一段时间来学习 gradle 的相关知识，这次在这里记录也分享一下，如果有错的地方，还望指点一下。  
 
@@ -54,15 +54,7 @@ android {
     //这里应该是设置打包后的apk里的META-INF移除指定的文件吧
     packagingOptions {
         exclude 'META-INF/DEPENDENCIES.txt'
-        exclude 'META-INF/LICENSE.txt'
-        exclude 'META-INF/NOTICE.txt'
-        exclude 'META-INF/NOTICE'
-        exclude 'META-INF/LICENSE'
-        exclude 'META-INF/DEPENDENCIES'
-        exclude 'META-INF/notice.txt'
-        exclude 'META-INF/license.txt'
-        exclude 'META-INF/dependencies.txt'
-        exclude 'META-INF/LGPL2.1'
+        //省略部分exclude 代码...
     }
 
     //关闭指定的lint检查
@@ -70,14 +62,21 @@ android {
         disable 'MissingTranslation', 'ExtraTranslation'
     }
 
-    //lint检查到错误时不中断编译
+    //lint检查到错误时不中断编译，好像是说lint检查是为优化代码，发现的错误其实并不会导致程序异常
+    //所以有的时候及时发现Lint检查错误还是可以直接运行查看效果
     lintOptions {
         abortOnError false
     }
 
     //签名的相关配置
     signingConfigs {
+        //这个标签名可以随意命名，这里的作用大概类似于定义一个对象，该对象里设置好了签名需要的各种配置
+        //可以定义不止一种配置的签名对象，例如常见的还有 debug{...}, release{...}，然后在buildTypes{}里
+        //通过 signingConfigs.app1 进行调用
         app1 {
+            //签名的相关配置，网上资料很多，STOREPASS, KEYALIAS, KEYPASS 这些常量是定义在
+            //gradle.properties 文件里，如果没有该文件手动创建即可，这样可以保证安全
+            //只有定义在 gradle.properties 里的常量才可以直接通过常量名引用
             storeFile file('meizhi.keystore')
             storePassword project.hasProperty('STOREPASS') ? STOREPASS : ''
             keyAlias project.hasProperty('KEYALIAS') ? KEYALIAS : ''
@@ -85,10 +84,14 @@ android {
         }
     }
 
-    //编译的项目配置
+    //编译，打包的项目配置
     buildTypes {
+
         debug {
+            //在 BuildConfig 里自定义一个 boolean 类型的常量
+            //更多资料可以查看：http://stormzhang.com/android/2015/01/25/gradle-build-field/ 
             buildConfigField "boolean", "LOG_DEBUG", "true"
+            
             debuggable true
             applicationIdSuffix ".debug"
         }
@@ -97,11 +100,16 @@ android {
             buildConfigField "boolean", "LOG_DEBUG", "false"
 
             debuggable false
+            
+            //开启混淆
             minifyEnabled true
+            //删除无用的资源
             shrinkResources true
+            //混淆文件
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             if (keyStore.exists()) {
                 println "Meizhi: using drakeet's key"
+                //根据在signingConfigs.app1里的签名配置进行签名
                 signingConfig signingConfigs.app1
             } else {
                 println "Meizhi: using default key"
@@ -110,6 +118,8 @@ android {
             //这段代码应该会在大神的项目里挺常见的，我在很多项目里都看见过了
             //这也是groovy的代码，这里的代码作用是重命名最后打包出来的apk
             //根据 def fileName 设置的格式来命名，${}表示的是某个变量的引用
+            //例如根据设置的格式最后apk命名可能是： Meizhi_v1.0.0_2017-03-28_fir.apk
+            //至于 applicationVariants 这些变量含义后面博客会介绍
             applicationVariants.all { variant ->
                 variant.outputs.each { output ->
                     def outputFile = output.outputFile
@@ -121,8 +131,11 @@ android {
             }
         }
 
+        //这里的作用跟 singingConfigs 差不多，只是为不同的 flavor 设置一些属性
+        //常见的设置比如设置不同的渠道编号，设置不同的 api 服务器等等
         productFlavors {
             fir {
+                //这个的作用是将 AndroidManifest.xml 里的占位符 ￥{UMENG_CHANNEL_VALUE} 的值替换成fir
                 manifestPlaceholders = [UMENG_CHANNEL_VALUE: "fir"]
             }
             GooglePlay {
@@ -152,6 +165,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(":libraries:headsupcompat")
     compile project(":libraries:smooth-app-bar-layout")
+    //as默认会去下载传递依赖，下面是指定不需要去下载传递依赖
     compile ('com.squareup.retrofit2:retrofit:2.1.0') {
         exclude module: 'okhttp'
     }
@@ -164,7 +178,15 @@ dependencies {
 ```
 
 
+# 疑问  
 
+1.apply plugin: 'com.android.application' 听说这是调用一个方法？  
+
+2.rootProject.ext.android.compileSdkVersion, 不用 ext 来设置全局变量是否可以？  
+
+3.defaultConfig{}, packagingOptions{}, signingConfigs{}, buildTypes{} 等等这些，我怎么知道 Android{} 里都有哪些可以使用？  
+
+...
 
 
 
@@ -172,4 +194,7 @@ dependencies {
 
 
 # 参考资料  
-[1] 徐宜生写的《Android群英传：神兵利器》第4章：与Gradle的爱恨情仇  
+·徐宜生写的《Android群英传：神兵利器》第4章：与Gradle的爱恨情仇  
+·[retrolambda使用教程](http://blog.csdn.net/zhupumao/article/details/51934317?locationNum=12)  
+·[Gradle配置全局变量](http://blog.csdn.net/fwt336/article/details/54613419)  
+·[GRADLE自定义你的BUILDCONFIG](http://stormzhang.com/android/2015/01/25/gradle-build-field/)
