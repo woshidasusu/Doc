@@ -1,4 +1,4 @@
-这次想来梳理一下 View 动画也就是补间动画（ScaleAnimation, AlphaAnimation, TranslationAnimation...）这些动画运行的流程解析。内容并不会去分析动画的呈现原理是什么，诸如 Matrix 这类的原理是什么，因为我也还没搞懂。本篇主要是分析当调用了 `View.startAnimation()` 之后，动画的一个运行流程是什么？    
+这次想来梳理一下 View 动画也就是补间动画（ScaleAnimation, AlphaAnimation, TranslationAnimation...）这些动画运行的流程解析。内容并不会去分析动画的呈现原理是什么，诸如 Matrix 这类的原理是什么，因为我也还没搞懂。本篇主要是分析当调用了 `View.startAnimation()` 之后，动画从开始到结束的一个运行流程是什么？    
 
 # 提问环节
 
