@@ -14,31 +14,65 @@ public class LogUtils {
 
     public static void v(String tag, String msg) {
         if (logVerbose) {
-            android.util.Log.v("verbose/" + tag, "" + msg);
+            logInternal(VERBOSE, tag, msg);
         }
     }
 
     public static void d(String tag, String msg) {
         if (DEBUG >= LEVEL) {
-            android.util.Log.d(tag, "" + msg);
+            logInternal(DEBUG, tag, msg);
         }
     }
 
     public static void i(String tag, String msg) {
         if (INFO >= LEVEL) {
-            android.util.Log.i(tag, "" + msg);
+            logInternal(INFO, tag, msg);
         }
     }
 
     public static void w(String tag, String msg) {
         if (WARN >= LEVEL) {
-            android.util.Log.w(tag, "" + msg);
+            logInternal(WARN, tag, msg);
         }
     }
 
     public static void e(String tag, String msg) {
         if (ERROR >= LEVEL) {
-            android.util.Log.e(tag, "" + msg);
+            logInternal(ERROR, tag, msg);
+        }
+    }
+
+    private static void logInternal(int type, String tag, String msg) {
+        String methodName = "";
+        try {
+            StackTraceElement[] stackTrace = new Throwable().getStackTrace();
+            StackTraceElement targetElement = stackTrace[3];
+            methodName = targetElement.getMethodName();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (!TextUtils.isEmpty(methodName)) {
+            methodName += "(), ";
+        }
+        msg = methodName + msg;
+        switch (type) {
+            case VERBOSE:
+                android.util.Log.v("verbose/" + tag, "" + msg);
+                break;
+            case DEBUG:
+                android.util.Log.d(tag, "" + msg);
+                break;
+            case INFO:
+                android.util.Log.i(tag, "" + msg);
+                break;
+            case WARN:
+                android.util.Log.w(tag, "" + msg);
+                break;
+            case ERROR:
+                android.util.Log.e(tag, "" + msg);
+                break;
+            default:
+                break;
         }
     }
 }
