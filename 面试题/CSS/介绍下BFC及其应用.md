@@ -94,3 +94,7 @@ display: inline-block 也会让元素成为一个 BFC。既然这样，那么上
 当然，解决这种现象方式很多，要么用 float 来实现三列布局，要么把三个 div 放在 display: flex 容器内，最后的效果：
 
 ![flex容器实现多列](https://upload-images.jianshu.io/upload_images/1924341-75e8ba52bc00fcc1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)  
+
+### 知识点脑图
+
+![](./BFC及其扩展知识点.png)  
