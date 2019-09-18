@@ -13,4 +13,5 @@
 ### JS
 
 1. [['1', '2', '3'].map(parseInt) what & why?](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/JS/js%E9%9D%A2%E8%AF%95%E9%A2%98.md)
+2. [什么是防抖和节流？有什么区别？如何实现？](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/JS/js%E9%9D%A2%E8%AF%95%E9%A2%98.md)
 
