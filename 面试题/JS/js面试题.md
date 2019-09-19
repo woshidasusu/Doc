@@ -93,3 +93,77 @@ Android 的屏幕刷新机制，每 16.6 ms 内，只响应第一次的 UI 刷�
 
 防抖能让高频事件在短时间内只响应一次；节流则是让高频事件在短时间内以固定频率响应
 
+### 3. [介绍下 Set、Map、WeakSet 和 WeakMap 的区别？](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/6)
+
+这些是 ES6 中新增的数据结构，用于弥补数组和对象的不足之处。
+
+- Set
+
+类似于数组的集合，只有键值，成员不能重复，与数组能够相互转换，所以可以很方便的用于数组去重。其他应用场景还有进行交集、并集、差集的计算。
+
+- WeakSet
+
+在 Set 基础上增加更多的限制，如成员只能是对象类型，不允许遍历。优点则是，成员都是弱引用，随时可能消失，因此不容易造成内存泄漏。
+
+- Map
+
+一种字典的数据结构，即键值对（key - value）的集合，对象同样也是键值对的集合，但对象的键名 key 只能是字符串类型或 Symbol，Map 允许键名 key 可以是任意类型。
+
+比如用对象作为 key 值。
+
+- WeakMap
+
+与 Map 相比较，不能遍历，健名 key 只能是对象类型，成员是弱引用，随时可能被回收，可以防止内存泄漏。
+
+### 4. [ES5/ES6 的继承除了写法以外还有什么区别？](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/20)
+
+ES5 通过原型 prototype 实现继承；
+
+ES6 新增 class 语法，可通过 extends 实现类的继承；
+
+js 是基于原型的语言，虽然 class 的语法实际上只是语法糖，本质实现仍旧是通过原型实现继承，但直接通过 prototype 的继承和 class 语法的 extends 继承还是有一些区别。
+
+- 父类属性的继承
+
+在 ES5 中：
+
+```javascript
+function A(){
+    this.a = 1;
+}
+function B(){
+    this.b = 2;
+}
+B.prototype = new A();
+
+var b = new B(); // b: {b: 2}
+b.a; // 1
+```
+
+通过构造函数 B 创建实例 b 时，直接在 B 内部先创建 this，然后通过构造函数 B 内部对 this 进行加工，最后得到实例 b 对象：{b: 2}。
+
+所以，b 实际上只有自有属性，但实例 b 的原型会指向 B.prototype 即 A 的实例，所以可能通过原型链访问到 a 属性。
+
+在 ES6 中：
+
+```javascript
+class A {
+	constructor(){
+        this.a = 1;
+    }
+}
+
+class B extends A {
+    constructor(){
+        super();
+        this.b = 2;
+    }
+}
+
+var b = new B(); // b: {a: 1, b: 2}
+```
+
+通过 class B 来创建实例对象 b 时，必须先创建父类 A 的实例对象，然后再创建类 B 的 this，然后通过 super 来调用父类构造函数对 this 进行加工，最后再执行类 B 构造函数对 this 继续加工。
+
+所以最后 b 对象，实际上就已经含有父类中定义的 a 对象了
+
