@@ -14,4 +14,6 @@
 
 1. [['1', '2', '3'].map(parseInt) what & why?](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/JS/js%E9%9D%A2%E8%AF%95%E9%A2%98.md)
 2. [什么是防抖和节流？有什么区别？如何实现？](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/JS/js%E9%9D%A2%E8%AF%95%E9%A2%98.md)
+3. [介绍下 Set、Map、WeakSet 和 WeakMap 的区别？](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/JS/js%E9%9D%A2%E8%AF%95%E9%A2%98.md)
+4. [ES5/ES6 的继承除了写法以外还有什么区别？](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/JS/js%E9%9D%A2%E8%AF%95%E9%A2%98.md)
 
