@@ -167,3 +167,52 @@ var b = new B(); // b: {a: 1, b: 2}
 
 所以最后 b 对象，实际上就已经含有父类中定义的 a 对象了
 
+### 5. [判断数组的几种方式](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/23)
+
+判断某个变量类型是否为数组，有三种方式：
+
+- instanceof
+- Object.prototype.toString.call()
+- Array.isArray()
+
+下面大概讲讲：
+
+instanceof 是通过判断左边的对象类型数据的原型链上是否存在右边的对象，判断数组时，直接：
+
+```javascript
+var a = [];
+var b = 1;
+a instanceof Array; // true，因为 [].__proto__.contructor.name = Array
+b instanceof Array; // false
+```
+
+Object.prototype.toString.call() 获取的信息又叫做类属性，可用于判断内置的数据类型，包括 6 种基本数据类型和内置的对象类型（如 RegExp 等）：
+
+```javascript
+Object.prototype.toString.call('An') // "[object String]"
+Object.prototype.toString.call(1) // "[object Number]"
+Object.prototype.toString.call(Symbol(1)) // "[object Symbol]"
+Object.prototype.toString.call(null) // "[object Null]"
+Object.prototype.toString.call(undefined) // "[object Undefined]"
+Object.prototype.toString.call(function(){}) // "[object Function]"
+Object.prototype.toString.call({name: 'An'}) // "[object Object]"
+Object.prototype.toString.call([])  //[object Array]
+```
+
+Array.isArray()  是 ES6 新增的用于判断是否是数组的静态方法，当浏览器不支持时，可用 Object.prototype.toString.call 模拟实现。
+
+### 6. [讲讲模块化发展](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/28)
+
+[点击跳转](https://github.com/woshidasusu/Doc/blob/master/Blogs/__%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8/%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A822-%E8%AE%B2%E8%AE%B2%E6%A8%A1%E5%9D%97%E5%8C%96.md)
+
+大概来说，是这么一个发展过程：
+
+1. 全局变量、全局函数 =>
+2. 对象作为命名空间 =>
+3. 立即执行的函数作为临时命名空间（IIFE） + 闭包 =>
+4. 动态创建 \<script\> 工具（LAB.js） =>
+5. CommonJS 规范和 node.js =>
+6. AMD 规范和 Require.js =>
+7. CMD 规范和 Sea.js =>
+8. ES6 标准
+
