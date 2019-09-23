@@ -216,3 +216,32 @@ Array.isArray()  是 ES6 新增的用于判断是否是数组的静态方法，�
 7. CMD 规范和 Sea.js =>
 8. ES6 标准
 
+### 7. [全局作用域中，用 const 和 let 声明的变量不在 window 上，那到底在哪里？如何去获取？](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/30)
+
+在 ES3 中，变量的作用域只有全局作用域和函数内作用域两种场景。而它的原理，是基于 EC（执行上下文），每次当执行全局代码或函数代码时，都会创建一个 EC，而 EC 中有一个 VO（变量对象），用来存储当前上下文中的变量。同时还有一个作用域链，用于给当前上下文访问它可使用的外部变量。
+
+具体原理查看这篇：[JavaScript进阶之作用域链](https://github.com/woshidasusu/Doc/blob/master/Blogs/__%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8/%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A818-JavaScript%E8%BF%9B%E9%98%B6%E4%B9%8B%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE.md)  
+
+但在 ES6 中，作用域这种概念已被废弃了，取而代之的是词法环境（Lexical environment）。
+
+词法环境，简单点说，就是相应代码块内标识符与值的关联关系的体现，它有两个组成部分：环境记录（Environment Record），用途类似于执行上下文（EC）中的 VO；外部词法环境的引用（outer），用途类似于执行上下文（EC）中的作用域链。
+
+更多内容参考：
+
+[深入JavaScript系列（一）：词法环境](https://juejin.im/post/5c0a398be51d451dcb0400b3)
+
+[彻底搞懂javascript-词法环境(Lexical Environments)](https://juejin.im/post/5c05120be51d4513416d2111)
+
+[ECMA-262-5 词法环境:通用理论（四）--- 环境](https://blog.csdn.net/szengtal/article/details/78722826)
+
+对于这个题目，js 引擎在遇到不同类型代码时会创建相对应的词法环境，这些变量就存储于各自的词法环境中。大体上，有这么几种：
+
+- Global：全局变量，存储于 window 的属性里
+- Block：块级作用域，每个有 {} 包含的代码块
+- Local：函数内的局部变量，没有闭包的场景下，生命周期同函数
+- Catch：try-catch 的代码块
+- Script：也可以说是顶级的 Block，全局作用内通过 let 等声明的变量
+
+![](https://user-images.githubusercontent.com/33000154/64755227-fffd2b00-d55c-11e9-8fa2-0e2e809e9cf3.jpg)
+
+所以，在全局作用域内声明的 let 变量，不存在于 window 上，而是存储于一个顶级的 Block 中即 Script，可直接通过变量的引用访问。
