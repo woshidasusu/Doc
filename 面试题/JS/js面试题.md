@@ -356,3 +356,104 @@ console.log(b);  // 20
 console.log(c);  // 20
 ```
 
+### 9. 输出以下代码执行的结果并解释为什么
+
+- [第一题](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/76)
+
+```javascript
+var obj = {
+    '2': 3,
+    '3': 4,
+    'length': 2,
+    'splice': Array.prototype.splice,
+    'push': Array.prototype.push
+}
+obj.push(1)
+obj.push(2)
+console.log(obj)
+```
+
+考察 push 方法的操作，Array.prototype.push 方法不仅可以用于对数组类型数据进行操作，也可以用于操作对象。
+
+push 方法操作的逻辑：将数据放入 length 指向的下标，length 加 1 后并返回。如果 length 不存在，那么创建它并从 0 开始。
+
+所以，对于该题目，会在下标为 2 的地址开始 push 数据，最终结果就是：
+
+```javascript
+obj = {
+    '2': 1,
+    '3': 2,
+    'length': 4,
+    'splice': Array.prototype.splice,
+    'push': Array.prototype.push
+}
+```
+
+另外，还考察的一个知识点是，[console 控制台在输出日志时，会对对象进行是否是类数组数据判断，判断逻辑](https://github.com/ChromeDevTools/devtools-frontend/blob/master/front_end/event_listeners/EventListenersUtils.js#L330)：是否有 length 属性，且具有 splice 方法，满足两者的话，会以数组形式打印，所以题目输出的应该是：
+
+```javascript
+console.log(obj) // [empty*2, 1, 2, splice: f, push: f]
+```
+
+- [第二题](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/93)
+
+```javascript
+var a = {n: 1};
+var b = a;
+a.x = a = {n: 2};
+
+console.log(a.x) 	
+console.log(b.x)
+```
+
+本题考察运算符优先级问题： `.` 优先级大于 `=`
+
+所以连续赋值时： `a.x = a = {n: 2}`，会先进行 `.` 运算，即在此时 a 指向的对象 {n: 1} 上面创建一个 x 属性，然后进行 `=` 赋值运算，从右至左，所以 a 指向新的对象 {n: 2}，然后该对象赋值给 x 属性。
+
+最后结果就是，a = {n: 2}，b = {n: 1, x: {n: 2}}
+
+所以输出的结果： undefined，{n: 2}
+
+附上运算符优先级顺序：
+
+| 运算符                             | 描述                                         |
+| ---------------------------------- | -------------------------------------------- |
+| . [] ()                            | 字段访问、数组下标、函数调用以及表达式分组   |
+| ++ -- - ~ ! delete new typeof void | 一元运算符、返回数据类型、对象创建、未定义值 |
+| * / %                              | 乘法、除法、取模                             |
+| + - +                              | 加法、减法、字符串连接                       |
+| << >> >>>                          | 移位                                         |
+| < <= > >= instanceof               | 小于、小于等于、大于、大于等于、instanceof   |
+| == != === !==                      | 等于、不等于、严格相等、非严格相等           |
+| &                                  | 按位与                                       |
+| ^                                  | 按位异或                                     |
+| \|                                 | 按位或                                       |
+| &&                                 | 逻辑与                                       |
+| \|\|                               | 逻辑或                                       |
+| ?:                                 | 条件                                         |
+| = oP=                              | 赋值、运算赋值                               |
+| ,                                  | 多重求值                                     |
+
+### 10. [call 和 apply 的区别是什么，哪个性能更好一些](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/84)
+
+以 `Math.max(1, 2, 3, 4)` 举例：
+
+```javascript
+// call
+Math.max.call(null, 1, 2, 3, 4);
+
+//apply
+Math.max.apply(null, [1, 2, 3, 4]);
+```
+
+区别其实仅在于接收的参数， call 接收的是不定长的参数，而 apply 接收的是数组；
+
+大部分场景两者并没有什么异同，只是在 ES3 时，还没有 ES6 新增的数组扩展运算符 `...` 运算，所以没法将数组解开成参数列表，那么对于一些只接收不定长参数的方法来说，参数来源刚好是数组时，就很鸡肋，这种场景下，就可以使用 apply 来处理。
+
+比如，求一个数组里的最大值，但 Math.max 方法只接收不定长参数，不接收数组参数，在 ES3 中，就只能通过 apply 来处理，call 处理不了。
+
+但在 ES6 中，因为新增了 `...` 运算，所以 call 基本可以覆盖 apply 的使用场景，而且性能又比 apply 好，所以建议都使用 call。
+
+如： `Math.max.call(null, ...[1, 2, 3, 4]);`
+
+很多资料都说 call 性能比 apply 好，原因不清楚，有的说是因为 apply 内部至少需要额外进行一次数组参数的解构处理。

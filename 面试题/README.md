@@ -1,6 +1,6 @@
 # 面试题收集
 
-**update on：2019-9-17**
+**update on：2019-9-24**
 
 ### CSS
 
@@ -20,4 +20,6 @@
 6. [讲讲模块化发展？](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/JS/js%E9%9D%A2%E8%AF%95%E9%A2%98.md)
 7. [全局作用域中，用 const 和 let 声明的变量不在 window 上，那到底在哪里？如何去获取？](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/JS/js%E9%9D%A2%E8%AF%95%E9%A2%98.md)
 8. [具名函数表达式（NFE）函数名变量的作用域？](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/JS/js%E9%9D%A2%E8%AF%95%E9%A2%98.md)
+9. [push方法和连续赋值下的运算符优先级问题？](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/JS/js%E9%9D%A2%E8%AF%95%E9%A2%98.md)
+10. [call和apply的区别是什么，哪个性能更好一些？](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/JS/js%E9%9D%A2%E8%AF%95%E9%A2%98.md)
 
