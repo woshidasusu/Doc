@@ -1,6 +1,6 @@
 # JS 面试题
 
-### 1. [['1', '2', '3'].map(parseInt) what & why?](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/4)
+### <span id="1">1.</span> [['1', '2', '3'].map(parseInt) what & why?](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/4)
 
 首先得明白题目问的是什么，然后才能知道考查的是哪些知识点。
 
@@ -65,7 +65,7 @@ console.log(['1.1', '2', '0.3'].map(parse)) // [1, 2, 0]
 // parseInt(10, 3) = 1 * 3^1 + 0 * 3^0 = 3
 ```
 
-### 2. [什么是防抖和节流？有什么区别？如何实现？](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/5)
+### <span id="2">2.</span> [什么是防抖和节流？有什么区别？如何实现？](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/5)
 
 该题考查的主要还是概念问题，防抖和节流都是用于处理高频事件的优化。
 
@@ -93,7 +93,7 @@ Android 的屏幕刷新机制，每 16.6 ms 内，只响应第一次的 UI 刷�
 
 防抖能让高频事件在短时间内只响应一次；节流则是让高频事件在短时间内以固定频率响应
 
-### 3. [介绍下 Set、Map、WeakSet 和 WeakMap 的区别？](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/6)
+### <span id="3">3.</span> [介绍下 Set、Map、WeakSet 和 WeakMap 的区别？](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/6)
 
 这些是 ES6 中新增的数据结构，用于弥补数组和对象的不足之处。
 
@@ -115,7 +115,7 @@ Android 的屏幕刷新机制，每 16.6 ms 内，只响应第一次的 UI 刷�
 
 与 Map 相比较，不能遍历，健名 key 只能是对象类型，成员是弱引用，随时可能被回收，可以防止内存泄漏。
 
-### 4. [ES5/ES6 的继承除了写法以外还有什么区别？](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/20)
+### <span id="4">4.</span> [ES5/ES6 的继承除了写法以外还有什么区别？](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/20)
 
 ES5 通过原型 prototype 实现继承；
 
@@ -167,7 +167,7 @@ var b = new B(); // b: {a: 1, b: 2}
 
 所以最后 b 对象，实际上就已经含有父类中定义的 a 对象了
 
-### 5. [判断数组的几种方式](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/23)
+### <span id="5">5.</span> [判断数组的几种方式](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/23)
 
 判断某个变量类型是否为数组，有三种方式：
 
@@ -201,7 +201,7 @@ Object.prototype.toString.call([])  //[object Array]
 
 Array.isArray()  是 ES6 新增的用于判断是否是数组的静态方法，当浏览器不支持时，可用 Object.prototype.toString.call 模拟实现。
 
-### 6. [讲讲模块化发展](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/28)
+### <span id="6">6.</span> [讲讲模块化发展](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/28)
 
 [点击跳转](https://github.com/woshidasusu/Doc/blob/master/Blogs/__%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8/%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A822-%E8%AE%B2%E8%AE%B2%E6%A8%A1%E5%9D%97%E5%8C%96.md)
 
@@ -216,7 +216,7 @@ Array.isArray()  是 ES6 新增的用于判断是否是数组的静态方法，�
 7. CMD 规范和 Sea.js =>
 8. ES6 标准
 
-### 7. [全局作用域中，用 const 和 let 声明的变量不在 window 上，那到底在哪里？如何去获取？](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/30)
+### <span id="7">7.</span> [全局作用域中，用 const 和 let 声明的变量不在 window 上，那到底在哪里？如何去获取？](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/30)
 
 在 ES3 中，变量的作用域只有全局作用域和函数内作用域两种场景。而它的原理，是基于 EC（执行上下文），每次当执行全局代码或函数代码时，都会创建一个 EC，而 EC 中有一个 VO（变量对象），用来存储当前上下文中的变量。同时还有一个作用域链，用于给当前上下文访问它可使用的外部变量。
 
@@ -246,7 +246,7 @@ Array.isArray()  是 ES6 新增的用于判断是否是数组的静态方法，�
 
 所以，在全局作用域内声明的 let 变量，不存在于 window 上，而是存储于一个顶级的 Block 中即 Script，可直接通过变量的引用访问。
 
-### 8. [下面的代码打印什么内容，为什么？](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/48)  
+### <span id="8">8.</span> [下面的代码打印什么内容，为什么？](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/48)  
 
 ```javascript
 var b = 10;
@@ -356,7 +356,7 @@ console.log(b);  // 20
 console.log(c);  // 20
 ```
 
-### 9. 输出以下代码执行的结果并解释为什么
+### <span id="9">9.</span> 输出以下代码执行的结果并解释为什么
 
 - [第一题](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/76)
 
@@ -434,7 +434,7 @@ console.log(b.x)
 | = oP=                              | 赋值、运算赋值                               |
 | ,                                  | 多重求值                                     |
 
-### 10. [call 和 apply 的区别是什么，哪个性能更好一些](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/84)
+### <span id="10">10.</span> [call 和 apply 的区别是什么，哪个性能更好一些](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/84)
 
 以 `Math.max(1, 2, 3, 4)` 举例：
 
