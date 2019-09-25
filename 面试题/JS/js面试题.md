@@ -434,6 +434,38 @@ console.log(b.x)
 | = oP=                              | 赋值、运算赋值                               |
 | ,                                  | 多重求值                                     |
 
+- [第三题](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/125)
+
+```javascript
+// example 1
+var a={}, b='123', c=123;  
+a[b]='b';
+a[c]='c';  
+console.log(a[b]); // c
+
+---------------------
+// example 2
+var a={}, b=Symbol('123'), c=Symbol('123');  
+a[b]='b';
+a[c]='c';  
+console.log(a[b]); // b
+
+---------------------
+// example 3
+var a={}, b={key:'123'}, c={key:'456'};  
+a[b]='b';
+a[c]='c';  
+console.log(a[b]);  // c
+```
+
+本题考察对象的 key 值本质。
+
+对象的键值 key 只能是字符串类型或 Symbol 类型的数据，所以通过 `[]` 操作时，不是这两种类型的，会先进行一次 String(xx) 的转换。
+
+所以，对于第一个例子，number 类型会被转成 string 类型，导致值被覆盖，输出 c；第二个例子，每个 Symbol 都是唯一的，所以不会被覆盖；第三个例子，对象转成 string 默认都是 [object object]，所以两个的 key 值其实一样，后者覆盖前者。
+
+另外，ES6 中新增了 Map 类型的数据，就是为了扩展对象的键值类型的局限，在 Map 中，键值可以是任意类型，number，string，object 都可以。
+
 ### <span id="10">10.</span> [call 和 apply 的区别是什么，哪个性能更好一些](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/84)
 
 以 `Math.max(1, 2, 3, 4)` 举例：
@@ -457,3 +489,12 @@ Math.max.apply(null, [1, 2, 3, 4]);
 如： `Math.max.call(null, ...[1, 2, 3, 4]);`
 
 很多资料都说 call 性能比 apply 好，原因不清楚，有的说是因为 apply 内部至少需要额外进行一次数组参数的解构处理。
+
+### <span id="11">11.</span> 箭头函数和普通函数的区别
+
+- 箭头函数的 this 会自动绑定在定义时所在的作用域内的 this 值
+- 箭头函数的 this 因为已经被自动绑定，所以当通过 call，apply 给函数指定 this 时，会失效
+- 箭头函数不能使用 argument，如需该场景，可手动添加 ...reset 参数替代
+- 箭头函数不能当做构造函数使用，即不能结合 new 使用
+
+- 箭头函数内部不能有 yield 命令，即不能当做 Generator 函数使用
