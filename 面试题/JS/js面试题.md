@@ -466,6 +466,45 @@ console.log(a[b]);  // c
 
 另外，ES6 中新增了 Map 类型的数据，就是为了扩展对象的键值类型的局限，在 Map 中，键值可以是任意类型，number，string，object 都可以。
 
+- [第四题](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/155)
+
+```javascript
+function Foo() {
+    Foo.a = function() {
+        console.log(1)
+    }
+    this.a = function() {
+        console.log(2)
+    }
+}
+Foo.prototype.a = function() {
+    console.log(3)
+}
+Foo.a = function() {
+    console.log(4)
+}
+Foo.a();  // 4
+let obj = new Foo();
+obj.a();  // 2
+Foo.a();  // 1
+```
+
+本题考察的是基础知识：对象的创建、继承、原型链、自有属性、继承属性、静态方法、实例方法；
+
+第一个输出 4 是因为代码执行到这里时，为构造函数 Foo 对象定义了输出 4 的 a 方法，那么调用它自然就是输出 4；
+
+然后因为通过 new 调用了构造函数，那么构造函数 Foo 内部的代码就会被执行，此时 Foo 对象的 a 方法被替代为输出 1 的函数了；然后通过 this 添加了一个对象属性 a，类型是输出 2 的函数；
+
+所以调用对象的 a 方法，自然就是输出 2；
+
+可能你会疑惑，不是还通过 Foo.prototype.a 给原型定义了一个 a 方法么？不是说，通过构造函数创建的对象都会继承自 Foo.prototype 么？
+
+是啊，你说的没错啊，所以通过构造函数 Foo 创建的对象是具有 Foo.prototype.a 的继承属性的啊，这点是正确的啊；只是，访问对象 obj.a 属性时，是优先读取对象的自有属性，如果不存在，才会去原型链上寻找。
+
+最后一行代码再次调用 Foo.a() 方法，因为已经被替换掉了，所以输出 1；
+
+以上，就是该题考察的知识点，不难，很基础，理理就清楚了。
+
 ### <span id="10">10.</span> [call 和 apply 的区别是什么，哪个性能更好一些](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/84)
 
 以 `Math.max(1, 2, 3, 4)` 举例：
