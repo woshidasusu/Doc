@@ -505,6 +505,99 @@ Foo.a();  // 1
 
 以上，就是该题考察的知识点，不难，很基础，理理就清楚了。
 
+- [第四题](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/190)
+
+```javascript
+var name = 'Tom';
+(function() {
+  if (typeof name == 'undefined') {
+    var name = 'Jack';
+    console.log('Goodbye ' + name);
+  } else {
+    console.log('Hello ' + name);
+  }
+})(); // Goodbye Jack
+```
+
+仍旧考察的是变量的作用域：全局作用域和函数内作用域，且 var 变量的声明有提前的特性。
+
+所以在 IIFE 块内的 name 在代码执行前已经被提前声明了，值为 undefined，所以走 if 分支，所以输出 Goodbye Jack；
+
+题目稍微变形下，输出结果就不一样了，比如：
+
+```javascript
+var name = 'Tom';
+(function() {
+  if (typeof name == 'undefined') {
+    name = 'Jack';
+    // let name = 'Jack'
+    console.log('Goodbye ' + name);
+  } else {
+    console.log('Hello ' + name);
+  }
+})(); // Hello Tom
+```
+
+- [第五题](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/229)
+
+```javascript
+1 + "1"  // ‘11’
+
+2 * "2" // 4 
+
+[1, 2] + [2, 1]  //'1,22,1'
+
+"a" + + "b"  // 'aNaN'
+```
+
+考察一些运算符隐含的类型转换操作：
+
+`+` 运算符，如果有 string 类型的，那么进行字符串拼接操作；如果有对象类型，先将其转换成 string，即通过 valueOf() 或 toString()，再进行拼接操作；
+
+对于 'a' + + 'b' 相当于 'a' + (+'b') 运算，此时后面的 `+` 被当做一元运算符处理，即将后面的数据转换成 number 的操作，最后再进行字符串拼接；
+
+- [第六题](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/251)
+
+```javascript
+function wait() {
+  return new Promise(resolve =>
+    setTimeout(resolve, 10 * 1000)
+  )
+}
+
+async function main() {
+  console.time();
+  const x = wait();
+  const y = wait();
+  const z = wait();
+  await x;
+  await y;
+  await z;
+  console.timeEnd();
+}
+main();  // 10000ms
+```
+
+考察 async 和 await 的知识。
+
+async 只是 Generator 函数的异步任务应用和自动流程管理器的语法糖，也就是碰到 await 时，函数会交出执行权，等待后续 Promise 任务的状态变化，再切回继续往下执行。
+
+所以，上述例子中，x，y，z 三个 Promise 任务会并行处理，然后再依次等待每个 Promise 状态变更，总耗时大概 10s，因为一个 Promise 耗时 10s；
+
+但题目可以稍微变形下：
+
+```javascript
+async function main() {
+  console.time();
+  await wait();
+  await wait();
+  await wait();
+  console.timeEnd();
+}
+```
+
+此时，三个 Promise 任务就是串行处理了，后一个必须等待前一个状态变更后才进行，所以总耗时大概 30s。
+
 ### <span id="10">10.</span> [call 和 apply 的区别是什么，哪个性能更好一些](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/84)
 
 以 `Math.max(1, 2, 3, 4)` 举例：
@@ -529,7 +622,7 @@ Math.max.apply(null, [1, 2, 3, 4]);
 
 很多资料都说 call 性能比 apply 好，原因不清楚，有的说是因为 apply 内部至少需要额外进行一次数组参数的解构处理。
 
-### <span id="11">11.</span> 箭头函数和普通函数的区别
+### <span id="11">11.</span> [箭头函数和普通函数的区别](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/101)
 
 - 箭头函数的 this 会自动绑定在定义时所在的作用域内的 this 值
 - 箭头函数的 this 因为已经被自动绑定，所以当通过 call，apply 给函数指定 this 时，会失效
@@ -537,3 +630,35 @@ Math.max.apply(null, [1, 2, 3, 4]);
 - 箭头函数不能当做构造函数使用，即不能结合 new 使用
 
 - 箭头函数内部不能有 yield 命令，即不能当做 Generator 函数使用
+
+### <span id="12">12.</span> [为什么 for 循环嵌套顺序会影响性能？](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/235)
+
+```javascript
+var t1 = new Date().getTime()
+for (let i = 0; i < 100; i++) {
+  for (let j = 0; j < 1000; j++) {
+    for (let k = 0; k < 10000; k++) {
+    }
+  }
+}
+var t2 = new Date().getTime()
+console.log('first time', t2 - t1)
+
+for (let i = 0; i < 10000; i++) {
+  for (let j = 0; j < 1000; j++) {
+    for (let k = 0; k < 100; k++) {
+
+    }
+  }
+}
+var t3 = new Date().getTime()
+console.log('two time', t3 - t2)  
+```
+
+最内层的执行次数虽然都是一样的，但前两层的执行次数就不一样了。
+
+而执行过程的操作包括：变量的初始化、判断语句、自增语句，总是需要耗费性能的。
+
+所以，内层循环次数大的话，就会比较耗时；
+
+当然，理论上是这样子，但不同引擎或许会对这段代码有所优化，所以也并不一定后者就一定最耗时。
