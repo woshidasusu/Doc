@@ -25,3 +25,6 @@
 11. [箭头函数和普通函数的区别？](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/JS/js%E9%9D%A2%E8%AF%95%E9%A2%98.md#11)
 12. [为什么 for 循环嵌套顺序会影响性能？](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/JS/js%E9%9D%A2%E8%AF%95%E9%A2%98.md#12)
 
+### 异步
+
+1. [ setTimeout、Promise、Async/Await 的区别](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%BC%82%E6%AD%A5/setTimeout%26Promise%26Async_Await%E5%8C%BA%E5%88%AB.md)
