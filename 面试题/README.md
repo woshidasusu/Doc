@@ -28,3 +28,5 @@
 ### 异步
 
 1. [ setTimeout、Promise、Async/Await 的区别](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%BC%82%E6%AD%A5/setTimeout%26Promise%26Async_Await%E5%8C%BA%E5%88%AB.md)
+2. [异步的解决方案](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%BC%82%E6%AD%A5/%E5%BC%82%E6%AD%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.md)
+
