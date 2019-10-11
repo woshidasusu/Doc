@@ -31,4 +31,5 @@
 2. [异步的解决方案](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%BC%82%E6%AD%A5/%E5%BC%82%E6%AD%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.md)
 3. [模拟实现一个 Promise.finally](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%BC%82%E6%AD%A5/Promise.md#1)
 4. [模拟实现一个 Promise.all](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%BC%82%E6%AD%A5/Promise.md#2)
+5. [模拟实现一个 Promise.race](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%BC%82%E6%AD%A5/Promise.md#3)
 

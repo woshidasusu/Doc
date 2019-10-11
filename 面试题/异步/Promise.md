@@ -23,7 +23,7 @@ Promise.prototype.finally = function(callback) {
 new Promise().then().finally().then().catch() // 这样的处理
 ```
 
-### [介绍下 Promise.all 使用、实现原理及错误处理](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/130)
+### [<span id="2">介绍下 Promise.all 使用、实现原理及错误处理</span>](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/130)
 
 ```javascript
 Promise.all([Promise.resolve(1), 2]).then(v => console.log(v)); // [1, 2]
@@ -75,6 +75,49 @@ Promise.all = function(promiseArray) {
 ```
 
 错误处理不清楚指的是什么。
+
+### [<span id="3">模拟实现一个 Promise.race</span>](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/140)
+
+```javascript
+Promise.race([1, 2]).then(v => console.log(v)); // 1
+```
+
+Promise.race 跟 Promise.all 正好相反，它们的含义差不多类似于数组的 every 和 some 遍历，但仅仅是差不多，细节方面有所差异。
+
+Promise.race 接收一个数组参数，数组成员最好是 Promise 对象，如果不是的话，会先通过 Promise.resolve 进行转换。
+
+当数组成员中某一个 Promise 状态变更时，Promise.race 生成的 Promise 状态就跟随着变更，且返回状态变更的 Promise 的值。
+
+可用于一些超时处理的场景，比如：
+
+```javascript
+let queryPromise = new Promise(); // 网络请求
+let timeoutPromise = new Promise((resolve) => setTimeout(resolve, 5000));  // 定时 5s 的 Promise
+
+Promise.race([queryPromise, timeoutPromise]).then().catch();
+// 5s 的网络请求超时处理
+```
+
+- 实现原理
+
+```javascript
+Promise.race = function(arr) {
+    if (!(arr instanceof Array)) {
+        throw new TypeError("parameter must be array")
+    }
+    return new Promise((resolve, reject) => {
+       	arr.forEach(p => {
+            if (p instanceof Promise) {
+                p.then(resolve, reject);
+            } else {
+                resolve(v);
+            }
+        });
+    });
+}
+```
+
+
 
 ### 手写一个 Promise
 
