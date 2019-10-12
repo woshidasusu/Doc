@@ -33,3 +33,7 @@
 4. [模拟实现一个 Promise.all](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%BC%82%E6%AD%A5/Promise.md#2)
 5. [模拟实现一个 Promise.race](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%BC%82%E6%AD%A5/Promise.md#3)
 
+### 设计模式
+
+1. [观察者模式 VS 发布-订阅模式](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%E5%92%8C%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB.md)
+
