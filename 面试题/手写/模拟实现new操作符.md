@@ -141,7 +141,147 @@ function is_constructor(f) {
 
 其实本质上也是用抛异常方式来判断，但与直接 new A() 的抛异常方式不同的是，它不会触发构造函数的执行。这就得来看看 Reflect.construct 了：
 
+Reflect.construct 方法等同于 new target(...args)，提供了一种不使用 new 来调用构造函数的方法：
 
+```javascript
+function A() {
+    this.a = 1;
+}
+new A(); // {a: 1}
+// 等价于
+Reflect.construct(A, []); // {a: 1}
+```
+
+有的可能就好奇了，既然这样，那就直接用 Reflect.construct 来模拟实现 new 不就好了，还需要自己写上面那么多代码，处理那么多场景么？
+
+emmm，你说的很有道理，是可以这样没错，但这样，不就学不到 new 的职责原理了吗，不就回答不了面试官的提问了吗？
+
+Reflect.construct 还可以接收一个可选的第三个参数：
+
+> Reflect.construct(target, argumentsList[, newTarget])
+>
+> - target: 被调用的构造函数
+> - argumentsList：参数列表，类数组类型数据
+> - new Target：可选，当有传入时，使用 newTarget.prototype 来作为实例对象的 prototype，否则使用 target.prototype
+> - **当 target 或者 newTarget 不能作为构造函数时，抛出 TypeError 异常**
+
+那么，我们可以怎样来利用这些特性呢？先看使用原始 new 的方式：
+
+```javascript
+function A(){
+    console.log(1);
+}
+B = () => {
+    console.log(2);
+}
+
+new A(); // 输出1
+new B(); // TypeError，抛异常
+
+// 使用抛异常方式来判断某个函数能否作为构造函数时，如果可以，那么构造函数就会被先执行一遍，如果刚好在构造函数内处理一些业务代码，那么可能就会有副作用影响了
+function isConstructor(Fn) {
+    try {
+   	 	new A();   // 能够判断出 A 可以作为构造函数，但 A 会被先执行一次
+    	// new B();  // 能够判断出 B 不能作为构造函数
+	} catch(e) {
+    	return false;
+	}
+    return true;
+}
+```
+
+那么，该如何来使用 Reflect.construct 呢？
+
+关键在于它的第三个参数，是用来指定构造函数生成的对象的 prototype，并不会去执行它，但却会跟第一个参数构造函数一起经过能否作为构造函数（[[Construct]]）检查，看看用法：
+
+```javascript
+function A(){
+    console.log(1);
+}
+A.prototype.a = 1;
+function B() {
+ 	console.log(2);   
+}
+B.prototype.a = 2;
+
+var a = Reflect.construct(A, []); // 输出 1
+a.a; // 1，继承自 A.prototype
+
+var b = Reflect.construct(A, [], B); // 输出 1
+b.a; // 2, 继承自 B.prototype;
+```
+
+我们来大概写一下 Reflect.construct 传入三个参数时的伪代码：
+
+```javascript
+Reflect.construct = function(target, args, newTarget) {
+    check target has [[Construct]]
+    check newTarget has [[Construct]]
+    var obj = Object.create(newTarget ? newTarget.prototype : target.prototype)
+    var result = target.call(obj, ...args);
+    return result instanceof Object ? result : obj;
+}
+```
+
+第一个参数 target 和第三个参数 newTarget 都会进行是否能作为构造函数使用的检查，虽然 target 会被作为构造函数而调用，但我们可以把待检查的函数传给第三个参数，而第一个参数随便传入一个无关但可用来作为构造函数使用不就好了，所以，代码是这样：
+
+```javascript
+// 代码来自文末的链接
+function is_constructor(f) {
+  // 特殊处理，因为 Symbol 能通过 Reflect.construct 对参数的检测
+  if (f === Symbol) return false;
+  try {
+    // 第一个 target 参数传入无关的构造函数，第三个参数传入待检测函数  
+    Reflect.construct(String, [], f);
+  } catch (e) {
+    return false;
+  }
+  return true;
+}
+
+// 当 f 可作为构造函数使用，Reflect.construct 就会正常执行，那么此时：
+// Reflect.construct(String, [], f) 其实相当于执行了:
+// var a = new String();
+// a.__proto__ = f.prototype
+// 既不会让被检测函数先行执行一遍，又可以达到利用引擎层面检测函数是否能作为构造函数的目的
+```
+
+# 总结
+
+最终，模拟 new 的实现代码：
+
+```javascript
+function _new(Fn, ...args) {
+    function is_constructor(f) {
+      	if (f === Symbol) return false;
+      	try {
+        	Reflect.construct(String, [], f);
+      	} catch (e) {
+        	return false;
+      	}
+      	return true;
+    }
+    
+    // 1. 参数判断检测
+    let isFunction = typeof Fn === 'function';
+    if (!isFunction || !is_constructor(Fn)) {
+        throw new TypeError(`${Fn.name || Fn} is not a constructor`);
+    }
+    
+    // 2. 创建一个继承构造函数.prototype的空对象
+    var obj = Object.create(Fn.prototype);
+    // 3. 让空对象作为函数 A 的上下文，并调用 A，同时获取它的返回值
+    let result = Fn.call(obj, ...args);
+    // 4. 如果构造函数返回一个对象，那么直接 return 它，否则返回内部创建的新对象
+    return result instanceof Object ? result : obj;
+}
+```
+
+几个关键点理清就可以写出来了：
+
+- 如何判断某个函数能否作为构造函数
+- 构造函数有返回值时的处理
+- 构造函数生成的对象的原型处理
 
 # 参考
 
