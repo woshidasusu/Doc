@@ -10,7 +10,7 @@
 
 ```javascript
 function A() {
-	this.a = 1;
+    this.a = 1;
 }
 A.prototype.b = 1;
 var a = new A(); // {a: 1}
@@ -282,6 +282,58 @@ function _new(Fn, ...args) {
 - 如何判断某个函数能否作为构造函数
 - 构造函数有返回值时的处理
 - 构造函数生成的对象的原型处理
+
+# 扩展
+
+### new.target
+
+ES6 中新增了 new.target 特性，即在构造函数中，可以通过 new.target 来检测函数是否是通过 new 运算符被调用。因为当通过 new 调用时，new.target 会指向构造函数的引用；当做普通函数调用时，new.target 值是 undefined。
+
+```javascript
+function A() {
+    console.log(new.target)
+}
+
+new A(); // 输出 A(){}
+A(); // 输出 undefined
+```
+
+它的用途可用来限定某些函数只能作为构造函数使用或普通函数使用。
+
+那么，模拟的 _new 方法，可以提供一个 target 属性，在构造函数被调用前赋值，调用完毕删除，但需考虑构造函数内还会嵌套使用 _new 的场景，所以还需一个额外的栈结构来保存历史数据。如：
+
+```javascript
+function _new(Fn, ...args) {
+    function is_constructor(f) {
+      	if (f === Symbol) return false;
+      	try {
+        	Reflect.construct(String, [], f);
+      	} catch (e) {
+        	return false;
+      	}
+      	return true;
+    }
+    
+    let isFunction = typeof Fn === 'function';
+    if (!isFunction || !is_constructor(Fn)) {
+        throw new TypeError(`${Fn.name || Fn} is not a constructor`);
+    }
+   
+    var obj = Object.create(Fn.prototype);
+    // 构造函数调用前，如果target有值，先入栈，再赋新值
+    if (!_new.targets) {
+        _new.targets = [];
+    }
+    if (_new.target) {
+        _new.targets.push(_new.target);
+    }
+    _new.target = Fn;
+    let result = Fn.call(obj, ...args);
+    // 构造函数结束后，恢复上个 target
+    _new.target = _new.targets.pop();
+    return result instanceof Object ? result : obj;
+}
+```
 
 # 参考
 

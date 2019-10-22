@@ -43,3 +43,7 @@
 2. [介绍下 http 1.0 1.1 2.0 协议的区别](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%BD%91%E7%BB%9C/%E8%B0%88%E8%B0%88%E4%B8%89%E4%B8%AAhttp%E7%89%88%E6%9C%AC%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%8C%BA%E5%88%AB.md)
 3. [谈谈 HTTP 状态码](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%BD%91%E7%BB%9C/http%E7%8A%B6%E6%80%81%E7%A0%81.md)
 
+### 手写
+
+1. [模拟实现一个 new 操作符功能](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E6%89%8B%E5%86%99/%E6%A8%A1%E6%8B%9F%E5%AE%9E%E7%8E%B0new%E6%93%8D%E4%BD%9C%E7%AC%A6.md)
+
