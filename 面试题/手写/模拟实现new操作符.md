@@ -1,5 +1,7 @@
 # [模拟实现 new 操作符](https://muyiy.cn/blog/3/3.5.html#%E5%AE%9A%E4%B9%89)
 
+> 本文参考：[深度解析 new 原理及模拟实现](https://muyiy.cn/blog/3/3.5.html)
+
 首先需要理解，JavaScript 中的构造函数跟 Java 中的构造函数性质是不一样的。js 不是基于 class 这种静态类模式，而是基于原型对象的模式。
 
 所以，在 js 中，new 操作符，其实可以通俗的理解成一个辅助工具，用来辅助函数构造出一个新对象。所以，我们才能够来模拟实现它，因为它其实通俗理解，就是一个工具函数。
@@ -246,7 +248,7 @@ function is_constructor(f) {
 // 既不会让被检测函数先行执行一遍，又可以达到利用引擎层面检测函数是否能作为构造函数的目的
 ```
 
-# 总结
+### 总结
 
 最终，模拟 new 的实现代码：
 
@@ -283,6 +285,6 @@ function _new(Fn, ...args) {
 - 构造函数有返回值时的处理
 - 构造函数生成的对象的原型处理
 
-# 参考
+### 参考
 
 [francecil/leetcode：实现 new 操作符](https://github.com/francecil/leetcode/issues/11)
