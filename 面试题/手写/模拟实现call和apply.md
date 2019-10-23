@@ -36,7 +36,7 @@ b.apply(o, [1, 2]);   // 输出：  {a: 1}   1   2
 - 调用原型方法
 
 ```javascript
-// 如果某对象覆盖了原型上某个方法，那么调用该方法一直是走对象上的逻辑，此时需要有需求要走父类逻辑，可通过 call，类似于其他语言的 super
+// 如果某对象覆盖了原型上某个方法，那么调用该方法一直是走对象上的逻辑，此时如果有需求要走父类逻辑，可通过 call，类似于其他语言的 super
 
 // [] 重写了 toString，所以需要的话，可以调用 Object.prototype.toString 原有逻辑
 Object.prototype.toString.call([]); // [object Array]
@@ -166,3 +166,7 @@ Function.prototype.apply2 = function(thisArg, args) {
     return result;
 }
 ```
+
+### 参考
+
+- [JavaScript深入之史上最全--5种this绑定全面解析](https://muyiy.cn/blog/3/3.1.html#_1-%E8%B0%83%E7%94%A8%E4%BD%8D%E7%BD%AE)
