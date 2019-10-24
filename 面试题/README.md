@@ -47,4 +47,5 @@
 
 1. [模拟实现一个 new 操作符功能](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E6%89%8B%E5%86%99/%E6%A8%A1%E6%8B%9F%E5%AE%9E%E7%8E%B0new%E6%93%8D%E4%BD%9C%E7%AC%A6.md)
 2. [模拟实现 call 和 apply](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E6%89%8B%E5%86%99/%E6%A8%A1%E6%8B%9F%E5%AE%9E%E7%8E%B0call%E5%92%8Capply.md)
+3. [模拟实现 bind](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E6%89%8B%E5%86%99/%E6%A8%A1%E6%8B%9F%E5%AE%9E%E7%8E%B0bind.md)
 
