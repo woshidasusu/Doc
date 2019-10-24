@@ -167,6 +167,19 @@ Function.prototype.apply2 = function(thisArg, args) {
 }
 ```
 
+### 思考
+
+### 思考
+
+**上面的模拟是否有问题？能否100%模拟？**
+
+很难 100% 模拟，我们顶多只能挑一些重要的功能来模拟实现，上面的模拟实现当然也有很多问题，用到 ES6 新特性这点先不讲。其他的问题，比如：
+
+- 没有考虑 Node.js 环境，没有考虑严格模式的处理
+- 未发现的坑
+
+这些也都是可以解决的，但处理起来就麻烦一些，可以参考文末的文章。反正，大概清楚 call 和 apply 的工作职责，能把主要的工作模拟实现出来，也就差不多了。不过追求 100% 也是好事，望你加油！
+
 ### 参考
 
-- [JavaScript深入之史上最全--5种this绑定全面解析](https://muyiy.cn/blog/3/3.1.html#_1-%E8%B0%83%E7%94%A8%E4%BD%8D%E7%BD%AE)
+- [实现 call, apply, bind](https://github.com/francecil/leetcode/issues/10)
