@@ -142,6 +142,7 @@ p.then(v => console.log(v)).then(v => 1).then(v => Promise.Resolved(1));
 - then 方法支持调用多次，注册多个回调处理，内部会维护这些回调函数队列
 - then 方法返回一个新的 Promise，以便支持链式调用
 - 根据传给 then 方法的回调函数的返回值的不同场景（undefined，基本类型，Promise，thenable），生成新的 Promise 对象的处理过程也不一样
+- new Promise(task) 时，传入的 task 函数就会马上被执行了，但传给 then 方法的回调函数，会作为微任务放入队列中等待执行（通俗理解，就是降低优先级，延迟执行，不知道怎么模拟微任务的话，可以使用 setTimeout，宏任务来模拟） 
 
 **因为内部属性可被动态修改，若想预防这点，可用 symbol 作为属性名。**
 
@@ -161,7 +162,7 @@ class Promise {
         this._value = null;
         
         // 2. 声明状态变化函数
-        onResolved = (value) => {
+        let onResolved = (value) => {
             // 状态一旦变更就不再变化
             if (this._status === PENDING) {
                 this._status = RESOLVED;
@@ -173,7 +174,7 @@ class Promise {
                 });
             }
         }
-        onRejected = (value) => {
+        let onRejected = (value) => {
             // 状态一旦变更就不再变化
             if (this._status === PENDING) {
                 this._status = REJECTED;
@@ -252,7 +253,7 @@ class Promise {
                 try {
                     setTimeout(() => {
                         let value = resolveCallback && resolveCallback(this._value);
-                        resolvePromise(value, resolve, reject);
+                        this.resolvePromise(value, resolve, reject);
                     });
                 } catch (e) {
                     reject(e);
@@ -264,7 +265,7 @@ class Promise {
                 try {
                     setTimeout(() => {
                         let value = rejectCallback && rejectCallback(this._value);
-                        resolvePromise(value, resolve, reject);
+                        this.resolvePromise(value, resolve, reject);
                     });
                 } catch (e) {
                     reject(e);
