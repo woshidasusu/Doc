@@ -1,4 +1,4 @@
-# 手写防抖函数 debounce 和 节流函数 throttle
+# 手写防抖函数 debounce 和节流函数 throttle
 
 > 本文参考：
 >
@@ -68,7 +68,7 @@ function throttle(fn, interval = 200) {
 
 原因在手写 debounce 里分析吧，因为那里也是一样的处理。  
 
-那么，看到这个实现方案，有没有感觉有点熟悉，在项目中肯定会有所接触的，但由于这里的 throttle 函数是个通用的工具函数，而且是高阶函数，可能在项目中看到的不多。至少，我好像并没有在实际项目中使用过。  
+那么，看到这个实现方案，有没有感觉有点熟悉，在项目中肯定会有所接触的，虽然由于这里的 throttle 函数是个通用的工具函数，而且是高阶函数，可能在项目中看到的不多。至少，我好像并没有在实际项目中使用过。  
 
 但这样的，你肯定经常写：  
 
@@ -297,10 +297,67 @@ export class PollingMgr {
 }
 ```
 
+当初封装的时候没有写注释，感兴趣的再细看吧，这里就是做个记录，方便后续查阅，下面看看用法：
+
+```
+/**
+* 轮询、延迟、防抖的任务工具类
+* 入口接收两个参数：
+* component：当前的组件类，使用时必须挂载在某个组件上，在组件销户时，如果有轮询任务，会去进行释放定时器
+* tag：可选参数，用于标识不同的任务，相同的 tag，多次调用都会被视为同个任务进行防抖处理
+*/
+PollingTaskUtils.tag(component, tag?: string);
+
+// 1. 延迟任务用法，比如延迟5s后处理
+PollingTaskUtils.tag(this).delay(5000).run(() => {
+	// do something
+});
+// 因为 tag 没传，该任务会和上面的被视为同个任务，如果上个任务延迟未被执行，则先取消，以下面为主
+PollingTaskUtils.tag(this).delay(5000).run(() => {
+	// do something
+});
+// tag 参数指定为 'task'，表示一个新的任务，会上述的延迟任务相互独立
+PollingTaskUtils.tag(this).delay(5000, 'task').run(() => {
+	// do something
+});
+
+// 2. 轮询任务，比如每隔 10s 发起一次请求
+PollingTaskUtils.tag(this).run(resolve => {
+	// 模拟请求
+	setTimeout(() => {
+		// do something
+		resolve.loop(10000); // 设置轮询间隔
+	}, 2000)
+});
+
+// 3. 轮询任务，符合一定条件停止轮询
+PollingTaskUtils.tag(this).run(resolve => {
+	// 模拟请求
+	setTimeout(() => {
+		if (flag) {
+			resolve.loop(-1); // <=0 或者不调用时停止轮询
+		} else {
+			resolve.loop(3000);
+		}
+	}, 2000);
+});
+
+// 4. 防抖处理
+let i = 0;
+while(i++ < 10) {
+	PollingTaskUtils.tag(this).delay(500).run(() => {
+		// do something
+	});
+}
+
+// 5. 由于 run 内部是通过 setTimeout 来实现轮询任务，但这个并不精准，当要求较精准的轮询时，比如时钟，使用 setInterval 会比较精准
+PollingTaskUtils.tag(this).runInterval(() => {
+	// do something
+}, 1000);  
+```
+
+其实用法跟直接用 setTimeout 和 setInterval 没多大区别，但好处在于，增加了跟组件的绑定，增加了对任务标识的处理，这样一来，即使忘记清理，内部也可以在组件销毁时自动去清理，即使多次调用，只要任务标识不一样，内部就会进行防抖处理。可以省掉一部分的工作量。
+
 当然，这些所有的出发点，仅适用于我的项目，因为毕竟是从项目中遇到的需求中来进行封装处理的，并不一定适用于你。
 
 我想说的是，这些工具函数的封装，重要的是掌握其思想，为什么需要进行防抖处理？防抖处理的基本实现是什么？知道这些即可，其余的，再自行根据需要扩展学习。
-
-
-
-
