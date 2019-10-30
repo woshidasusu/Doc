@@ -49,4 +49,6 @@
 2. [模拟实现 call 和 apply](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E6%89%8B%E5%86%99/%E6%A8%A1%E6%8B%9F%E5%AE%9E%E7%8E%B0call%E5%92%8Capply.md)
 3. [模拟实现 bind](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E6%89%8B%E5%86%99/%E6%A8%A1%E6%8B%9F%E5%AE%9E%E7%8E%B0bind.md)
 4. [手写防抖函数debounce和节流函数throttle](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E6%89%8B%E5%86%99/%E6%89%8B%E5%86%99%E9%98%B2%E6%8A%96debounce%E5%92%8C%E8%8A%82%E6%B5%81throttle.md)
+5. [手写实现深拷贝](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E6%89%8B%E5%86%99/%E6%89%8B%E5%86%99%E5%AE%9E%E7%8E%B0%E6%B7%B1%E6%8B%B7%E8%B4%9D.md)
+6. [扩展Object.assign实现深拷贝](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E6%89%8B%E5%86%99/%E6%89%A9%E5%B1%95Object.assign%E5%AE%9E%E7%8E%B0%E6%B7%B1%E8%A6%86%E7%9B%96.md)
 
