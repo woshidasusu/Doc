@@ -1,5 +1,7 @@
 # 题目：Promise 
 
+TODO：本篇实现有问题，暂未通过测试
+
 ### [<span id="1">模拟实现一个 Promise.finally</span>](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/109)
 
 跟 try-catch-finally 一样，finally 用于不管 Promise 最后状态如何都会执行的操作。而 Promise 只有两种状态变更，Resolved 或 Rejected，所以可以这么实现：
