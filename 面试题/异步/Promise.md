@@ -125,6 +125,8 @@ Promise.race = function(arr) {
 
 [Promise/A+规范](https://www.ituring.com.cn/article/66566)
 
+**未完成，下面代码有问题**
+
 要手写 Promise，必须先清楚它的基本使用和功能：
 
 ```javascript
