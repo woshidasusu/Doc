@@ -40,6 +40,8 @@
 
 - [博客园]( https://www.cnblogs.com/dasusu/ )
 
+- [掘金](https://juejin.im/user/5ab99dc3f265da239c7b5e76/posts)
+
   <img src="./source/images/dasuAndroidTv2.png" alt="微信公众号" style="zoom: 50%;" />
 
   公共号内有我微信联系方式和简历，这些个人信息就不随意挂网络了
