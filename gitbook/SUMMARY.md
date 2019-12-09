@@ -14,5 +14,6 @@
   * [docker 命令](docker速查/docker命令.md)
   * [docker-compose.yml 模板](docker速查/docker-compose模板.md)  
   * [docker-compose 命令](docker速查/docker-compose命令.md)
+* [psql 命令速查](psql速查/README.md)
 * [云服务速查](云服务速查/README.md)
 
