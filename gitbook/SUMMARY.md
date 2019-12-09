@@ -5,6 +5,7 @@
 ***
 
 * [angular 速查](angular速查/README.md)
+* [nginx 速查](nginx速查/README.md)
 * [vim 命令速查](vim速查/README.md)
 * [linux 命令速查](linux速查/README.md)
 * [java 命令速查](java速查/README.md)
