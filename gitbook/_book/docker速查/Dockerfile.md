@@ -17,7 +17,7 @@ EXPOSE 80
 RUN echo '<h1>Hello, Docker!</h1>' > /usr/share/nginx/html/index.html
 ```
 
-## 命令
+## 指令
 
 ### FROM
 
@@ -25,7 +25,7 @@ RUN echo '<h1>Hello, Docker!</h1>' > /usr/share/nginx/html/index.html
 
 基础镜像可以是官方提供的最基础的镜像，也可以是自己或三方已经定制化过的镜像
 
-[比如：nginx，jenkins，postgres，alpine（轻型 linux）]( [https://yeasy.gitbooks.io/docker_practice/content/image/build.html#from-%E6%8C%87%E5%AE%9A%E5%9F%BA%E7%A1%80%E9%95%9C%E5%83%8F](https://yeasy.gitbooks.io/docker_practice/content/image/build.html#from-指定基础镜像) )
+[比如：nginx，jenkins，postgres，alpine（轻型 linux）](https://yeasy.gitbooks.io/docker_practice/content/image/build.html#from-指定基础镜像)
 
 ### COPY
 
@@ -47,7 +47,7 @@ COPY hom* /mydir/
 
 执行命令行命令，当有多个命令需要执行时，可借助 `\ &&` 来拼成一条命令，避免使用多个 RUN，因为每一行命令都会创建一层存储层，层次是有限制的
 
-[比如]( [https://yeasy.gitbooks.io/docker_practice/content/image/build.html#run-%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4](https://yeasy.gitbooks.io/docker_practice/content/image/build.html#run-执行命令) )：
+[比如](https://yeasy.gitbooks.io/docker_practice/content/image/build.html#run-执行命令)：
 
 ```dockerfile
 RUN echo 'hello' \

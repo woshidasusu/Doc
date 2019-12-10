@@ -366,13 +366,134 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#docker-composeyml-&#x6A21;&#x677F;"><b></b>docker-compose.yml &#x6A21;&#x677F;</a></li></ul></div><a href="#docker-composeyml-&#x6A21;&#x677F;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="docker-composeyml-&#x6A21;&#x677F;"><a name="docker-composeyml-&#x6A21;&#x677F;" class="anchor-navigation-ex-anchor" href="#docker-composeyml-&#x6A21;&#x677F;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="docker-composeyml-&#x6A21;&#x677F;" class="plugin-anchor" href="#docker-composeyml-&#x6A21;&#x677F;"><i class="fa fa-link" aria-hidden="true"></i></a>docker-compose.yml &#x6A21;&#x677F;</h1>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#docker-composeyml-&#x6A21;&#x677F;"><b></b>docker-compose.yml &#x6A21;&#x677F;</a></li><ul><li><span class="title-icon "></span><a href="#&#x793A;&#x4F8B;"><b></b>&#x793A;&#x4F8B;</a></li><li><span class="title-icon "></span><a href="#&#x6A21;&#x677F;&#x6307;&#x4EE4;"><b></b>&#x6A21;&#x677F;&#x6307;&#x4EE4;</a></li><ul><li><span class="title-icon "></span><a href="#version"><b></b>version</a></li><li><span class="title-icon "></span><a href="#services"><b></b>services</a></li><li><span class="title-icon "></span><a href="#networks"><b></b>networks</a></li><li><span class="title-icon "></span><a href="#volumes"><b></b>volumes</a></li></ul></ul></ul></div><a href="#docker-composeyml-&#x6A21;&#x677F;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="docker-composeyml-&#x6A21;&#x677F;"><a name="docker-composeyml-&#x6A21;&#x677F;" class="anchor-navigation-ex-anchor" href="#docker-composeyml-&#x6A21;&#x677F;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="docker-composeyml-&#x6A21;&#x677F;" class="plugin-anchor" href="#docker-composeyml-&#x6A21;&#x677F;"><i class="fa fa-link" aria-hidden="true"></i></a>docker-compose.yml &#x6A21;&#x677F;</h1>
 <p>&#x53C2;&#x8003;&#x8D44;&#x6599;&#xFF1A;  </p>
 <ul>
 <li><a href="https://docs.docker.com/compose/compose-file/" target="_blank">&#x5B98;&#x65B9;&#x6587;&#x6863;</a></li>
 <li><a href="https://yeasy.gitbooks.io/docker_practice/content/compose/compose_file.html" target="_blank">Docker Compose &#x6A21;&#x677F;&#x6587;&#x4EF6;</a>  </li>
 </ul>
-<p>TODO &#x7B14;&#x8BB0;&#x5F85;&#x8FC1;&#x79FB;</p>
+<p>docker-compose.yml &#x662F;&#x7528;&#x6765;&#x7BA1;&#x7406;&#x914D;&#x7F6E;&#x591A;&#x5BB9;&#x5668;&#xFF0C;&#x6BCF;&#x4E00;&#x9879;&#x6307;&#x4EE4;&#x90FD;&#x53EF;&#x4EE5;&#x5728; docker &#x547D;&#x4EE4;&#x4E2D;&#x627E;&#x5230;&#x540C;&#x6837;&#x7684;&#x7528;&#x9014;&#xFF0C;&#x66F4;&#x591A;&#x7684;&#x662F;&#x4E0E; docker run &#x547D;&#x4EE4;&#x7684;&#x53C2;&#x6570;&#x8FDB;&#x884C;&#x5BF9;&#x5E94;</p>
+<p>&#x7B80;&#x5355;&#x8BF4;&#xFF0C;docker-compose &#x5176;&#x5B9E;&#x5C31;&#x662F;&#x5C06; docker &#x547D;&#x4EE4;&#x7684;&#x64CD;&#x4F5C;&#x8FDB;&#x884C;&#x4E86;&#x4E00;&#x5C42;&#x5C01;&#x88C5;&#xFF0C;&#x7136;&#x540E;&#x4EE5;&#x66F4;&#x7B80;&#x6D01;&#x7684;&#x547D;&#x4EE4;&#x63D0;&#x4F9B;&#x7ED9;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#xFF0C;&#x8BA9;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x518D;&#x81EA;&#x884C;&#x53BB;&#x6267;&#x884C;&#x5404;&#x79CD; docker &#x547D;&#x4EE4;&#x64CD;&#x4F5C;</p>
+<p>.yml &#x662F;&#x4E00;&#x79CD;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x4EE5;&#x7F29;&#x8FDB;&#x6765;&#x51B3;&#x5B9A;&#x914D;&#x7F6E;&#x9879;&#xFF0C;&#x6240;&#x4EE5;&#x7F29;&#x8FDB;&#x4E0D;&#x80FD;&#x968F;&#x4FBF;&#x641E;&#xFF0C;&#x540C;&#x5C42;&#x7F29;&#x8FDB;&#x5C5E;&#x4E8E;&#x540C;&#x5C42;&#x914D;&#x7F6E;&#xFF0C;&#x5185;&#x5C42;&#x7F29;&#x8FDB;&#x5C5E;&#x4E8E;&#x5B50;&#x914D;&#x7F6E;&#x9879;</p>
+<h2 id="&#x793A;&#x4F8B;"><a name="&#x793A;&#x4F8B;" class="anchor-navigation-ex-anchor" href="#&#x793A;&#x4F8B;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x793A;&#x4F8B;" class="plugin-anchor" href="#&#x793A;&#x4F8B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x793A;&#x4F8B;</h2>
+<p>&#x4E0B;&#x9762;&#x662F;&#x6211;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x7684;&#x914D;&#x7F6E;&#xFF0C;&#x7528;&#x5230;&#x7684;&#x6307;&#x4EE4;&#x4E0D;&#x591A;&#xFF0C;&#x5B98;&#x7F51;&#x6709;&#x4EFD;&#x793A;&#x4F8B;&#xFF0C;&#x91CC;&#x9762;&#x7528;&#x5230;&#x7684;&#x6BD4;&#x8F83;&#x591A;&#xFF0C;&#x540E;&#x7EED;&#x7B49;&#x6709;&#x63A5;&#x89E6;&#xFF0C;&#x518D;&#x6269;&#x5C55;</p>
+<pre><code class="lang-yaml"><span class="hljs-attr">version:</span> <span class="hljs-string">&apos;3&apos;</span>
+
+<span class="hljs-attr">services:</span>
+<span class="hljs-attr">  blog:</span>
+<span class="hljs-attr">    build:</span> ./blog/
+<span class="hljs-attr">    ports:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">&quot;9000:80&quot;</span>
+<span class="hljs-attr">    restart:</span> always
+<span class="hljs-attr">    volumes:</span>
+<span class="hljs-bullet">      -</span> /usr/local/etc/github/woshidasusu.github.io/:/usr/share/nginx/html/:ro
+<span class="hljs-attr">    networks:</span>
+<span class="hljs-attr">      n_nginx:</span>
+<span class="hljs-attr">        ipv4_address:</span> <span class="hljs-number">192.168</span><span class="hljs-number">.5</span><span class="hljs-number">.105</span>
+<span class="hljs-attr">  gitbook:</span>
+<span class="hljs-attr">    build:</span> ./gitbook/
+<span class="hljs-attr">    ports:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">&quot;9002:80&quot;</span>
+<span class="hljs-attr">    restart:</span> always
+<span class="hljs-attr">    volumes:</span>
+<span class="hljs-bullet">      -</span> /usr/local/etc/github/Doc/gitbook/_book/:/usr/share/nginx/html/:ro
+<span class="hljs-attr">    networks:</span>
+<span class="hljs-attr">      n_nginx:</span>
+<span class="hljs-attr">        ipv4_address:</span> <span class="hljs-number">192.168</span><span class="hljs-number">.5</span><span class="hljs-number">.106</span>
+<span class="hljs-attr">  jenkins:</span>
+<span class="hljs-attr">    build:</span> ./jenkins/
+<span class="hljs-attr">    ports:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">&quot;9001:8080&quot;</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">&quot;50000:50000&quot;</span>
+<span class="hljs-attr">    user:</span> root
+<span class="hljs-attr">    restart:</span> always
+<span class="hljs-attr">    volumes:</span>
+<span class="hljs-bullet">      -</span> /usr/local/etc/github/woshidasusu.github.io/:/var/jenkins_home/blog/codes/
+<span class="hljs-bullet">      -</span> /usr/local/etc/github/Doc/:/var/jenkins_home/gitbook/codes/
+<span class="hljs-bullet">      -</span> /root/.ssh/:/root/.ssh/:ro
+<span class="hljs-bullet">      -</span> /etc/localtime:/etc/localtime:ro
+<span class="hljs-attr">    networks:</span>
+<span class="hljs-attr">      n_nginx:</span>
+<span class="hljs-attr">        ipv4_address:</span> <span class="hljs-number">192.168</span><span class="hljs-number">.5</span><span class="hljs-number">.104</span>
+<span class="hljs-attr">  nginx:</span>
+<span class="hljs-attr">    build:</span> ./nginx/
+<span class="hljs-attr">    ports:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">&quot;80:80&quot;</span>
+<span class="hljs-attr">    restart:</span> always
+<span class="hljs-attr">    networks:</span>
+<span class="hljs-attr">      n_nginx:</span>
+<span class="hljs-attr">        ipv4_address:</span> <span class="hljs-number">192.168</span><span class="hljs-number">.5</span><span class="hljs-number">.103</span>
+<span class="hljs-attr">  db:</span>
+<span class="hljs-attr">    image:</span> postgres
+<span class="hljs-attr">    environment:</span>
+<span class="hljs-bullet">      -</span> POSTGRES_PASSWORD=xxx
+<span class="hljs-bullet">      -</span> POSTGRES_USER=xxx
+<span class="hljs-attr">    volumes:</span>
+<span class="hljs-bullet">      -</span> /usr/local/etc/postgres/data:/var/lib/postgresql/data
+<span class="hljs-attr">    expose:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">&quot;5432&quot;</span>
+<span class="hljs-attr">    networks:</span>
+<span class="hljs-attr">      n_nginx:</span>
+<span class="hljs-attr">        ipv4_address:</span> <span class="hljs-number">192.168</span><span class="hljs-number">.5</span><span class="hljs-number">.107</span>
+<span class="hljs-attr">  nextcloud:</span>
+<span class="hljs-attr">    image:</span> nextcloud
+<span class="hljs-attr">    ports:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-number">9003</span>:<span class="hljs-number">80</span>
+<span class="hljs-attr">    volumes:</span>
+<span class="hljs-attr">      - nextcloud:</span>/var/www/html
+<span class="hljs-attr">    networks:</span>
+<span class="hljs-attr">      n_nginx:</span>
+<span class="hljs-attr">        ipv4_address:</span> <span class="hljs-number">192.168</span><span class="hljs-number">.5</span><span class="hljs-number">.108</span>  
+
+<span class="hljs-attr">networks:</span>
+<span class="hljs-attr">  n_nginx:</span>
+<span class="hljs-attr">    driver:</span> bridge
+<span class="hljs-attr">    ipam:</span>
+<span class="hljs-attr">      config:</span>
+<span class="hljs-attr">        - subnet:</span> <span class="hljs-number">192.168</span><span class="hljs-number">.5</span><span class="hljs-number">.0</span>/<span class="hljs-number">24</span>  <span class="hljs-comment">## &#x5BBF;&#x4E3B;&#x673A;&#x4E00;&#x822C;&#x4F1A;&#x662F;&#x8BE5;&#x7F51;&#x6BB5;&#x7684; .1&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x8981;&#x8BBE;&#x7F6E;&#x7F51;&#x6BB5;&#x4E3A;1 i</span>
+
+<span class="hljs-attr">volumes:</span>
+<span class="hljs-attr">  nextcloud:</span>
+</code></pre>
+<h2 id="&#x6A21;&#x677F;&#x6307;&#x4EE4;"><a name="&#x6A21;&#x677F;&#x6307;&#x4EE4;" class="anchor-navigation-ex-anchor" href="#&#x6A21;&#x677F;&#x6307;&#x4EE4;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x6A21;&#x677F;&#x6307;&#x4EE4;" class="plugin-anchor" href="#&#x6A21;&#x677F;&#x6307;&#x4EE4;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6A21;&#x677F;&#x6307;&#x4EE4;</h2>
+<h3 id="version"><a name="version" class="anchor-navigation-ex-anchor" href="#version"><i class="fa fa-link" aria-hidden="true"></i></a><a name="version" class="plugin-anchor" href="#version"><i class="fa fa-link" aria-hidden="true"></i></a>version</h3>
+<p>docker-compose.yml &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x9996;&#x884C;&#xFF0C;&#x8868;&#x793A;&#x8BE5;&#x4F7F;&#x7528;&#x54EA;&#x4E2A;&#x7248;&#x672C;&#x7684; docker-compose&#xFF0C;&#x4E0D;&#x540C;&#x7248;&#x672C;&#x90FD;&#x6709;&#x5BF9; docker &#x7248;&#x672C;&#x7684;&#x6700;&#x4F4E;&#x652F;&#x6301;&#x8981;&#x6C42;&#xFF0C;&#x53EF;&#x5728;&#x5B98;&#x7F51;&#x67E5;&#x770B;</p>
+<p>&#x76EE;&#x524D;&#xFF08;2019&#xFF09;&#x901A;&#x5E38;&#x4F7F;&#x7528; 3.0 &#x7248;&#x672C;&#x5C31;&#x591F;&#x4E86;</p>
+<h3 id="services"><a name="services" class="anchor-navigation-ex-anchor" href="#services"><i class="fa fa-link" aria-hidden="true"></i></a><a name="services" class="plugin-anchor" href="#services"><i class="fa fa-link" aria-hidden="true"></i></a>services</h3>
+<p>docker-compose &#x91CC;&#x9762;&#x662F;&#x670D;&#x52A1;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x7BA1;&#x7406;&#x7684;&#x6BCF;&#x4E2A;&#x5BB9;&#x5668;&#x5BF9;&#x5E94;&#x7740;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#xFF0C;&#x90FD;&#x914D;&#x7F6E;&#x5728; services &#x5185;&#xFF0C;&#x670D;&#x52A1;&#x540D;&#x81EA;&#x5DF1;&#x968F;&#x610F;&#x53D6;</p>
+<p>&#x6BCF;&#x4E00;&#x4E2A;&#x5BB9;&#x5668;&#x7684;&#x914D;&#x7F6E;&#x9879;&#xFF0C;&#x57FA;&#x672C;&#x5305;&#x62EC;&#x8BBE;&#x7F6E;&#x5BB9;&#x5668;&#x57FA;&#x4E8E;&#x7684;&#x955C;&#x50CF;&#xFF0C;&#x7AEF;&#x53E3;&#x6620;&#x5C04;&#xFF0C;&#x6570;&#x636E;&#x5377;&#x4F7F;&#x7528;&#xFF0C;&#x78C1;&#x76D8;&#x6620;&#x5C04;&#xFF0C;&#x7F51;&#x7EDC;&#x8BBE;&#x7F6E;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;&#x6211;&#x76EE;&#x524D;&#x6240;&#x63A5;&#x89E6;&#x7684;</p>
+<pre><code class="lang-shell">services
+  # &#x670D;&#x52A1;&#x540D;
+  jenkins:
+    build: ./jenkins/ # &#x4F7F;&#x7528; jenkins &#x76EE;&#x5F55;&#x4E0B;&#x7684; Dockerfile &#x8FDB;&#x884C;&#x6784;&#x5EFA;&#x955C;&#x50CF;
+    ports:  # &#x7AEF;&#x53E3;&#x6620;&#x5C04;&#xFF0C;&#x5BBF;&#x4E3B;&#x673A;:&#x5BB9;&#x5668;
+      - &quot;9001:8080&quot;
+      - &quot;50000:50000&quot;
+    user: root  # &#x4EE5; root &#x7528;&#x6237;&#x8FDE;&#x63A5;&#x5BB9;&#x5668;
+    restart: always  # &#x91CD;&#x542F;&#x6A21;&#x5F0F;&#xFF0C;always &#x6302;&#x65AD;&#x5C31;&#x91CD;&#x542F;
+    volumes: # &#x4E0E;&#x5BBF;&#x4E3B;&#x673A;&#x7684;&#x6620;&#x5C04;
+      - /usr/local/etc/github/woshidasusu.github.io/:/var/jenkins_home/blog/codes/
+      - /usr/local/etc/github/Doc/:/var/jenkins_home/gitbook/codes/
+      - /root/.ssh/:/root/.ssh/:ro
+      - /etc/localtime:/etc/localtime:ro
+    networks: # &#x7F51;&#x7EDC;&#x8BBE;&#x7F6E;
+      n_nginx: # &#x52A0;&#x5165; n_nginx &#x5C40;&#x57DF;&#x7F51;
+        ipv4_address: 192.168.5.104 # &#x8BBE;&#x7F6E;&#x56FA;&#x5B9A; ip
+</code></pre>
+<h3 id="networks"><a name="networks" class="anchor-navigation-ex-anchor" href="#networks"><i class="fa fa-link" aria-hidden="true"></i></a><a name="networks" class="plugin-anchor" href="#networks"><i class="fa fa-link" aria-hidden="true"></i></a>networks</h3>
+<p>&#x521B;&#x5EFA;&#x7F51;&#x7EDC;</p>
+<pre><code class="lang-shell">networks: # &#x76F8;&#x5F53;&#x4E8E; docker network create
+  n_nginx: # &#x7F51;&#x7EDC;&#x540D;
+    driver: bridge # &#x4F7F;&#x7528;&#x7684;&#x7F51;&#x7EDC;&#x7C7B;&#x578B;
+    ipam:
+      config: 
+        - subnet: 192.168.5.0/24  # &#x914D;&#x7F6E;&#x5B50;&#x7F51;
+</code></pre>
+<h3 id="volumes"><a name="volumes" class="anchor-navigation-ex-anchor" href="#volumes"><i class="fa fa-link" aria-hidden="true"></i></a><a name="volumes" class="plugin-anchor" href="#volumes"><i class="fa fa-link" aria-hidden="true"></i></a>volumes</h3>
+<p>&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5377;</p>
+<pre><code class="lang-shell">volumes: # &#x76F8;&#x5F53;&#x4E8E; docker volume create
+  nextcloud:
+</code></pre>
 
                                 
                                 </section>
@@ -416,7 +537,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"docker-compose.yml 模板","level":"2.6.3","depth":2,"next":{"title":"docker-compose 命令","level":"2.6.4","depth":2,"path":"docker速查/docker-compose命令.md","ref":"docker速查/docker-compose命令.md","articles":[]},"previous":{"title":"docker 命令","level":"2.6.2","depth":2,"path":"docker速查/docker命令.md","ref":"docker速查/docker命令.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","donate","sharing-plus","anchor-navigation-ex","favicon"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/woshidasusu"},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"donate":{"alipay":"./source/images/alipay.jpg","alipayText":" ","button":"赞赏","title":"","wechat":"","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":{"shortcut":"./source/images/favicon.ico","bookmark":"./source/images/favicon.ico","appleTouch":"./source/images/favicon.ico","appleTouchMore":{"120x120":"./source/images/favicon.ico","180x180":"./source/images/favicon.ico"}},"github-buttons":{"buttons":[{"user":"woshidasusu","repo":"Doc","type":"star","size":"small","count":true}]},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"dasu","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"dasu's gitbook","language":"zh-hans","gitbook":"3.2.3","description":"I am dasu, and I'm coding..."},"file":{"path":"docker速查/docker-compose模板.md","mtime":"2019-12-09T01:52:28.065Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-10T12:20:50.953Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"docker-compose.yml 模板","level":"2.6.3","depth":2,"next":{"title":"docker-compose 命令","level":"2.6.4","depth":2,"path":"docker速查/docker-compose命令.md","ref":"docker速查/docker-compose命令.md","articles":[]},"previous":{"title":"docker 命令","level":"2.6.2","depth":2,"path":"docker速查/docker命令.md","ref":"docker速查/docker命令.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","donate","sharing-plus","anchor-navigation-ex","favicon"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/woshidasusu"},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"donate":{"alipay":"./source/images/alipay.jpg","alipayText":" ","button":"赞赏","title":"","wechat":"","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":{"shortcut":"./source/images/favicon.ico","bookmark":"./source/images/favicon.ico","appleTouch":"./source/images/favicon.ico","appleTouchMore":{"120x120":"./source/images/favicon.ico","180x180":"./source/images/favicon.ico"}},"github-buttons":{"buttons":[{"user":"woshidasusu","repo":"Doc","type":"star","size":"small","count":true}]},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"dasu","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"dasu's gitbook","language":"zh-hans","gitbook":"3.2.3","description":"I am dasu, and I'm coding..."},"file":{"path":"docker速查/docker-compose模板.md","mtime":"2019-12-10T14:22:38.946Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-10T14:52:56.662Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
