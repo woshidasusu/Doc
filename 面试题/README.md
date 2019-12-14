@@ -42,6 +42,7 @@
 1. [谈谈TCP的三次握手和四次挥手](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%BD%91%E7%BB%9C/%E8%B0%88%E8%B0%88TCP%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%92%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B.md)
 2. [介绍下 http 1.0 1.1 2.0 协议的区别](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%BD%91%E7%BB%9C/%E8%B0%88%E8%B0%88%E4%B8%89%E4%B8%AAhttp%E7%89%88%E6%9C%AC%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%8C%BA%E5%88%AB.md)
 3. [谈谈 HTTP 状态码](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%BD%91%E7%BB%9C/http%E7%8A%B6%E6%80%81%E7%A0%81.md)
+4. 讲讲缓存、安全
 
 ### 手写
 
@@ -51,3 +52,16 @@
 4. [手写防抖函数debounce和节流函数throttle](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E6%89%8B%E5%86%99/%E6%89%8B%E5%86%99%E9%98%B2%E6%8A%96debounce%E5%92%8C%E8%8A%82%E6%B5%81throttle.md)
 5. [手写实现深拷贝](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E6%89%8B%E5%86%99/%E6%89%8B%E5%86%99%E5%AE%9E%E7%8E%B0%E6%B7%B1%E6%8B%B7%E8%B4%9D.md)
 6. [扩展Object.assign实现深拷贝](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E6%89%8B%E5%86%99/%E6%89%A9%E5%B1%95Object.assign%E5%AE%9E%E7%8E%B0%E6%B7%B1%E6%8B%B7%E8%B4%9D.md)
+
+### 浏览器
+
+1.  浏览器渲染过程？
+2.  运行时和执行引擎的交互？
+3.  渲染引擎的渲染策略
+
+
+### 综合
+
+1. 讲讲浏览器从输入 url 后都发生了什么？
+2. 讲讲跨域及解决方案？
+3. 讲讲 XSS、CSFR 攻击及预防方案？
