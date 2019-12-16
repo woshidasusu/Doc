@@ -32,6 +32,7 @@
 3. [模拟实现一个 Promise.finally](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%BC%82%E6%AD%A5/Promise.md#1)
 4. [模拟实现一个 Promise.all](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%BC%82%E6%AD%A5/Promise.md#2)
 5. [模拟实现一个 Promise.race](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%BC%82%E6%AD%A5/Promise.md#3)
+6. [模拟实现一个 Promise](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%BC%82%E6%AD%A5/Promise.md#4)
 
 ### 设计模式
 
@@ -65,3 +66,4 @@
 1. 讲讲浏览器从输入 url 后都发生了什么？
 2. 讲讲跨域及解决方案？
 3. 讲讲 XSS、CSFR 攻击及预防方案？
+

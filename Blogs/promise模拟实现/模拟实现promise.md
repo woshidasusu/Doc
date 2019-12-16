@@ -331,7 +331,7 @@ then(onResolved, onRejected) {
 ```js
 class Promise {
     /**
-     * 构造函数，接收一个 task 处理函数，task 有两个可选参数，类型也是函数，给使用者来触发状态变更使用
+     * 构造函数负责接收并执行一个 task 处理函数，并将自己内部提供的两个状态变更处理的函数传递给 task，同时将当前 promise 状态置为 PENDING（执行中）
      */
     constructor(task) {
         /* 三种状态 */
@@ -342,134 +342,128 @@ class Promise {
         this._resolvedCallback = [];
         /* 失败的回调 */
         this._rejectedCallback = [];
+
+        // 1. 将当前状态置为 PENDING
         this._status = this.PENDING;
-        
+
+        // 参数类型校验
         if (!(task instanceof Function)) {
             throw new TypeError(`${task} is not a function`);
         }
-        
         try {
+            // 2. 调用 task 处理函数，并将状态变更通知的函数传递过去，需要注意 this 的处理
             task(this._handleResolve.bind(this), this._handleReject.bind(this));
-        }
-        catch (e) {
+        } catch (e) {
+            // 3. 如果 task 处理函数发生异常，当做失败来处理
             this._handleReject(e);
         }
     }
+
     /**
-     * 状态从 pending => resolved 的工作处理
-     * @param value 使用者传递进来的执行结果
-     * @private
+     * resolve 的状态变更处理
      */
     _handleResolve(value) {
         if (this._status === this.PENDING) {
-            this._handleStatusChange(this.RESOLVED, value);
+            if (value instanceof Promise) {
+                // 1. 如果 value 是 Promise，那么等待 Promise 状态结果出来后，再重新做状态变更处理
+                try {
+                    // 这里之所以不需要用 bind 来注意 this 问题是因为使用了箭头函数
+                    // 这里也可以写成 value.then(this._handleResole.bind(this), this._handleReject.bind(this))
+                    value.then(v => {
+                            this._handleResolve(v);
+                        },
+                        err => {
+                            this._handleReject(err);
+                        });
+                } catch(e) {
+                    this._handleReject(e);
+                }
+            } else if (value && value.then instanceof Function) {
+                // 2. 如果 value 是具有 then 方法的对象时，那么将这个 then 方法当做 task 处理函数，把状态变更的触发工作交由 then 来处理，注意 this 的处理
+                try {
+                    const then = value.then;
+                    then.call(value, this._handleResolve.bind(this), this._handleReject.bind(this));
+                } catch(e) {
+                    this._handleReject(e);
+                }
+            } else {
+                // 3. 其他类型，状态变更、触发成功的回调
+                this._status = this.RESOLVED;
+                this._value = value;
+                setTimeout(() => {
+                    this._resolvedCallback.forEach(callback => {
+                    callback();
+                });
+            });
+            }
         }
     }
+
     /**
-     * 状态从 pending => rejected 的工作处理
-     * @param value 使用者传递进来的执行结果
-     * @private
+     * reject 的状态变更处理
      */
     _handleReject(value) {
         if (this._status === this.PENDING) {
-            this._handleStatusChange(this.REJECTED, value);
-        }
-    }
-    _handleStatusChange(targetStatus, value) {
-        if (value instanceof Promise) {
-            try {
-                value.then(v => {
-                    this._handleResolve(v);
-                }, err => {
-                    this._handleReject(err);
-                });
-            }
-            catch (e) {
-                this._handleReject(e);
-            }
-        }
-        else if (value && value.then instanceof Function) {
-            try {
-                const then = value.then;
-                then.call(value, this._handleResolve.bind(this), this._handleReject.bind(this));
-            }
-            catch (e) {
-                this._handleReject(e);
-            }
-        }
-        else {
-            this._status = targetStatus;
+            this._status = this.REJECTED;
             this._value = value;
-            this._handleCallback();
-        }
-    }
-    _handleCallback() {
-        setTimeout(() => {
-            if (this._status === this.RESOLVED) {
-                this._resolvedCallback.forEach(callback => {
-                    callback();
-                });
-            }
-            else if (this._status === this.REJECTED) {
+            setTimeout(() => {
                 this._rejectedCallback.forEach(callback => {
                     callback();
                 });
-            }
-        });
+            });
+        }
     }
+
     /**
-     * then 方法，接收两个可选参数，用于注册回调，所以类型也是函数，且有一个参数，接收 Promise 执行结果，同时可返回任意值，作为新 Promise 的执行结果
-     * @param {callbackFn} onResolved
-     * @param {callbackFn} onRejected
-     * @returns {Promise}
+     * then 方法，接收两个可选参数，用于注册回调处理，所以类型也是函数，且有一个参数，接收 Promise 执行结果，同时可返回任意值，作为新 Promise 的执行结果
      */
     then(onResolved, onRejected) {
+        // then 方法返回一个新的 Promise，新 Promise 的状态结果依赖于回调函数的返回值
         return new Promise((resolve, reject) => {
+            // 对回调函数进行一层封装，主要是因为回调函数的执行结果会影响到返回的新 Promise 的状态和结果
             const _onResolved = () => {
-                if (onResolved) {
+                // 根据回调函数的返回值，决定如何处理状态变更
+                if (onResolved && onResolved instanceof Function) {
                     try {
                         const result = onResolved(this._value);
                         resolve(result);
-                    }
-                    catch (e) {
+                    } catch(e) {
                         reject(e);
                     }
-                }
-                else {
+                } else {
+                    // 如果传入非函数类型，则将上个Promise结果传递给下个处理
                     resolve(this._value);
                 }
             };
             const _onRejected = () => {
-                if (onRejected) {
+                if (onRejected && onRejected instanceof Function) {
                     try {
                         const result = onRejected(this._value);
                         resolve(result);
-                    }
-                    catch (e) {
+                    } catch(e) {
                         reject(e);
                     }
-                }
-                else {
+                } else {
                     reject(this._value);
                 }
             };
+            // 如果当前 Promise 状态还没变更，则将回调函数放入队列里等待执行
+            // 否则直接创建微任务来处理这些回调函数
             if (this._status === this.PENDING) {
                 this._resolvedCallback.push(_onResolved);
                 this._rejectedCallback.push(_onRejected);
-            }
-            else if (this._status === this.RESOLVED) {
+            } else if (this._status === this.RESOLVED) {
                 setTimeout(_onResolved);
-            }
-            else if (this._status === this.REJECTED) {
+            } else if (this._status === this.REJECTED) {
                 setTimeout(_onRejected);
             }
         });
     }
-    
+
     catch(onRejected) {
         return this.then(null, onRejected);
     }
-    
+
     static resolve(value) {
         if (value instanceof Promise) {
             return value;
@@ -492,95 +486,14 @@ class Promise {
 
 ### 测试
 
-网上有一些专门测试 Promise 的库，可以直接借助这些，比如：
+网上有一些专门测试 Promise 的库，可以直接借助这些，比如：[promises-tests](https://github.com/promises-aplus/promises-tests)
 
 我这里就举一些基本功能的测试用例：
 
 - 测试链式调用
 
-
-
-- 测试多次调用 then 注册多个回调处理
-
-
-
-
-
-- 测试异步场景
-
-
-
-- 测试执行结果类型为 Promise 对象场景
-
-
-
-
-
-- 测试执行结果类型为具有 then 方法的 thenable 对象场景
-
-
-
-
-
-- 测试执行结果为其他场景
-
-
-
-- 测试传给 then 非函数类型参数时的场景
-
 ```js
-new Promise(r => {
-    r(Promise.resolve(1).then(v => 2).then(v => 3));
-}).then(v => console.log('success', v), err => console.error('error', err));
-
-new Promise(r => {
-    r(new Promise(a => setTimeout(a, 5000)).then(v => 2).then(v => 3));
-}).then(v => console.log('success', v), err => console.error('error', err));
-
-new Promise(r => {
-   r(new Promise(a => setTimeout(a, 5000)));
-});
-
-new Promise(r => {
-   r(new Promise(a => a(111)));
-}).then(v => console.log('success', v), err => console.error('error', err));;
-
-new Promise(r => {
-    r({
-        then: (a, b) => {
-        	return a(111);
-        }
-    });
-}).then(v => console.log('success', v), err => console.error('error', err));
-
-new Promise(r => {
-    r({
-        then: 111
-    });
-}).then(v => console.log('success', v), err => console.error('error', err));
-
-new Promise(r => {
-    r(Promise.resolve(1));
-}).then(v => console.log('success', v), err => console.error('error', err));
-
-new Promise((r, j) => {
-    j(1111);
-}).then(v => console.log('success', v))
-  .then(v => console.log('success', v), err => console.error('error', err))
-  .catch(err => console.log('error', err));
-
-new Promise(r => {
-    r(1);
-}).then()
-.then(null, err => console.error('error', err))
-.then(v => console.log('success', v), err => console.error('error', err));
-
-new Promise((r,j) => {
-    j(1);
-}).then(2)
-.then(v => console.log('success', v), err => console.error('error', err))
-.then(v => console.log('success', v), err => console.error('error', err));
-
+// 测试链式调用
 new Promise(r => {
     console.log('0.--同步-----');
     r();
@@ -591,13 +504,194 @@ new Promise(r => {
 .then(v => console.log('5.-----------------'))
 .then(v => console.log('6.-----------------'))
 .then(v => console.log('7.-----------------'))
+```
 
+<details>
+    <summary>输出</summary>
+<pre><code>0.--同步-----
+1.-----------------
+2.-----------------
+3.-----------------
+4.-----------------
+5.-----------------
+6.-----------------
+7.-----------------
+</code></pre>
+</details>
 
+- 测试多次调用 then 注册多个回调处理
+
+```js
+// 测试多次调用 then 注册多个回调处理
 var p = new Promise(r => r(1));
 p.then(v => console.log('1-----', v), err => console.error('error', err));
 p.then(v => console.log('2-----', v), err => console.error('error', err));
 p.then(v => console.log('3-----', v), err => console.error('error', err));
 p.then(v => console.log('4-----', v), err => console.error('error', err));
-
 ```
+<details>
+    <summary>输出</summary>
+<pre><code>1----- 1
+2----- 1
+3----- 1
+4----- 1
+</code></pre>
+</details>
+
+
+- 测试异步场景
+
+```js
+// 测试异步场景
+new Promise(r => {
+    r(new Promise(a => setTimeout(a, 5000)).then(v => 1));
+})
+.then(v => {
+    console.log(v);
+    return new Promise(a => setTimeout(a, 1000)).then(v => 2);
+})
+.then(v => console.log('success', v), err => console.error('error', err));
+```
+<details>
+    <summary>输出</summary>
+<pre><code>1  // 5s 后才输出
+success 2  // 再2s后才输出
+</code></pre>
+</details>
+
+这个测试，可以检测出 resolve 的状态变更到底有没有根据规范，区分不同场景进行不同处理，你可以网上随便找一篇 Promise 的实现，把它的代码贴到浏览器的 console 里，然后测试一下看看，就知道有没有问题了
+
+
+- 测试执行结果类型为 Promise 对象场景
+
+```js
+// 测试执行结果类型为 Promise 对象场景(Promise 状态 5s 后变化)
+new Promise(r => {
+   r(new Promise(a => setTimeout(a, 5000)));
+}).then(v => console.log('success', v), err => console.error('error', err));
+```
+
+<details>
+    <summary>输出</summary>
+<pre><code>success undefined  // 5s 后才输出
+</code></pre>
+</details>
+
+```js
+// 测试执行结果类型为 Promise 对象场景(Promise 状态不会发生变化)
+new Promise(r => {
+   r(new Promise(a => 1));
+}).then(v => console.log('success', v), err => console.error('error', err));
+```
+
+<details>
+    <summary>输出</summary>
+<pre><code>// 永远都不输出
+</code></pre>
+</details>
+
+- 测试执行结果类型为具有 then 方法的 thenable 对象场景
+
+```js
+// 测试执行结果类型为具有 then 方法的 thenable 对象场景（then 方法内部会调用传递的函数参数）
+new Promise(r => {
+    r({
+        then: (a, b) => {
+        	return a(1);
+        }
+    });
+}).then(v => console.log('success', v), err => console.error('error', err));
+```
+
+<details>
+    <summary>输出</summary>
+<pre><code>success 1
+</code></pre>
+</details>
+
+```js
+// // 测试执行结果类型为具有 then 方法的 thenable 对象场景（then 方法内部不会调用传递的函数参数）
+new Promise(r => {
+    r({
+        then: (a, b) => {
+        	return 1;
+        }
+    });
+}).then(v => console.log('success', v), err => console.error('error', err));
+```
+
+<details>
+    <summary>输出</summary>
+<pre><code>// 永远都不输出
+</code></pre>
+</details>
+
+```js
+// 测试执行结果类型为具有 then 的属性，但属性值类型非函数
+new Promise(r => {
+    r({
+        then: 111
+    });
+}).then(v => console.log('success', v), err => console.error('error', err));
+```
+
+<details>
+    <summary>输出</summary>
+<pre><code>success {then: 111}
+</code></pre>
+</details>
+
+- 测试执行结果的传递
+
+```js
+// 测试当 Promise rejectd 时，reject 的状态结果会一直传递到可以处理这个失败结果的那个 then 的回调中
+new Promise((r, j) => {
+    j(1);
+}).then(v => console.log('success', v))
+  .then(v => console.log('success', v), err => console.error('error', err))
+  .catch(err => console.log('catch', err));
+```
+
+<details>
+    <summary>输出</summary>
+<pre><code>error 1
+</code></pre>
+</details>
+
+```js
+// 测试传给 then 的参数是非函数类型时，执行结果和状态会一直传递
+new Promise(r => {
+    r(1);
+}).then(1)
+.then(null, err => console.error('error', err))
+.then(v => console.log('success', v), err => console.error('error', err));
+```
+
+<details>
+    <summary>输出</summary>
+<pre><code>success 1
+</code></pre>
+</details>
+
+```js
+// 测试 rejectd 失败被处理后，就不会继续传递 rejectd
+new Promise((r,j) => {
+    j(1);
+}).then(2)
+.then(v => console.log('success', v), err => console.error('error', err))
+.then(v => console.log('success', v), err => console.error('error', err));
+```
+
+<details>
+    <summary>输出</summary>
+<pre><code>error 1
+success undefined
+</code></pre>
+</details>
+
+最后，当你自己写完个模拟实现 Promise 时，你可以将代码贴到浏览器上，然后自己测试下这些用例，跟官方的 Promise 执行结果比对下，你就可以知道，你实现的 Promise 基本功能上有没有问题了
+
+当然，需要更全面的测试的话，还是得借助一些测试库
+
+不过，自己实现一个 Promise 的目的其实也就在于理清 Promise 基本功能、行为、原理，所以这些用例能测通过的话，那么基本上也就掌握这些知识点了
 

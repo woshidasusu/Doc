@@ -1,7 +1,5 @@
 # 题目：Promise 
 
-TODO：本篇实现有问题，暂未通过测试
-
 ### [<span id="1">模拟实现一个 Promise.finally</span>](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/109)
 
 跟 try-catch-finally 一样，finally 用于不管 Promise 最后状态如何都会执行的操作。而 Promise 只有两种状态变更，Resolved 或 Rejected，所以可以这么实现：
@@ -119,13 +117,9 @@ Promise.race = function(arr) {
 }
 ```
 
-
-
-### 手写一个 Promise
+### <span id="4">手写一个 Promise</span>
 
 [Promise/A+规范](https://www.ituring.com.cn/article/66566)
-
-**未完成，下面代码有问题**
 
 要手写 Promise，必须先清楚它的基本使用和功能：
 
@@ -140,163 +134,177 @@ p.then(v => console.log(v), err => console.log(err));
 p.then(v => console.log(v)).then(v => 1).then(v => Promise.Resolved(1));
 ```
 
-- Promise 有三种状态，状态一旦变更就确定下来不再可变
-- 构造函数接收一个 task 处理函数，该函数有两个参数，是由 Promise 内部在调用 task 函数时传递进去的，两个参数也都是函数类型，用于改变 Promise 状态和通知 then 回调
-- Promise 有一个 then 方法，接收两个可选的回调函数参数，在状态改变后，内部会根据最终状态来选择回调成功或失败的函数，并将最终值作为参数传递给回调函数
-- then 方法支持调用多次，注册多个回调处理，内部会维护这些回调函数队列
-- then 方法返回一个新的 Promise，以便支持链式调用
-- 根据传给 then 方法的回调函数的返回值的不同场景（undefined，基本类型，Promise，thenable），生成新的 Promise 对象的处理过程也不一样
-- new Promise(task) 时，传入的 task 函数就会马上被执行了，但传给 then 方法的回调函数，会作为微任务放入队列中等待执行（通俗理解，就是降低优先级，延迟执行，不知道怎么模拟微任务的话，可以使用 setTimeout，宏任务来模拟） 
+- Promise 有三种状态：Pending（执行中）、Resolved（成功）、Rejected（失败），状态一旦变更结束就不再改变
+- Promise 构造函数接收一个函数参数，可以把它叫做 task 处理函数
+- task 处理函数用来处理异步工作，这个函数有两个参数，也都是函数类型，当异步工作结束，就是通过调用这两个函数参数来通知 Promise 状态变更、回调触发、结果传递
+- Promise 有一个 then 方法用于注册回调处理，当状态变化结束，注册的回调一定会被处理，即使是在状态变化结束后才通过 then 注册
+- then 方法支持调用多次来注册多个回调处理
+- then 方法接收两个可选参数，这两个参数类型都是函数，也就是需要注册的回调处理函数，分别是成功时的回调函数，失败时的回调函数
+- 这些回调函数有一个参数，类型任意，值就是任务结束需要通知给回调的结果，通过调用 task 处理函数的参数（类型是函数）传递过来
+- then 方法返回一个新的 Promise，以便支持链式调用，新 Promise 状态的变化依赖于回调函数的返回值，不同类型处理方式不同
+- then 方法的链式调用中，如果中间某个 then 传入的回调处理不能友好的处理回调工作（比如传递给 then 非函数类型参数），那么这个工作会继续往下传递给下个 then 注册的回调函数
+- Promise 有一个 catch 方法，用于注册失败的回调处理，其实是 `then(null, onRejected)` 的语法糖
+- task 处理函数或者回调函数执行过程发生代码异常时，Promise 内部自动捕获，状态直接当做失败来处理
+- `new Promise(task)` 时，传入的 task 函数就会马上被执行了，但传给 then 的回调函数，会作为微任务放入队列中等待执行（通俗理解，就是降低优先级，延迟执行，不知道怎么模拟微任务的话，可以使用 setTimeout 生成的宏任务来模拟） 
 
 **因为内部属性可被动态修改，若想预防这点，可用 symbol 作为属性名。**
+
+更多实现思路细节介绍，请移除至我的一篇博客： [模拟实现promise](http://blog.dasu.fun/2019/12/15/面试题/模拟实现promise/) 
 
 #### class 方式
 
 ```javascript
-const PENDING = 1;
-const RESOLVED = 2;
-const REJECTED = 3;
-
 class Promise {
+    /**
+     * 构造函数负责接收并执行一个 task 处理函数，并将自己内部提供的两个状态变更处理的函数传递给 task，同时将当前 promise 状态置为 PENDING（执行中）
+     */
     constructor(task) {
-        // 1. 初始化状态、回调队列
-        this._status = PENDING;
-        this._resolveCallbacks = [];
-        this._rejectCallbacks = [];
-        this._value = null;
-        
-        // 2. 声明状态变化函数
-        let onResolved = (value) => {
-            // 状态一旦变更就不再变化
-            if (this._status === PENDING) {
-                this._status = RESOLVED;
-                this._value = value;
-                this._resolveCallbacks.forEach(callback => {
-                   	setTimeout(() => { // 因为无法从引擎层面上实现微任务，这里用宏任务来模拟，确保 then 回调在当前任务的同步代码结束才被处理
-                        callback(this._value);
-                    }) 
-                });
-            }
+        /* 三种状态 */
+        this.PENDING = 'pending';
+        this.RESOLVED = 'resolved';
+        this.REJECTED = 'rejected';
+        /* 成功的回调 */
+        this._resolvedCallback = [];
+        /* 失败的回调 */
+        this._rejectedCallback = [];
+
+        // 1. 将当前状态置为 PENDING
+        this._status = this.PENDING;
+
+        // 参数类型校验
+        if (!(task instanceof Function)) {
+            throw new TypeError(`${task} is not a function`);
         }
-        let onRejected = (value) => {
-            // 状态一旦变更就不再变化
-            if (this._status === PENDING) {
-                this._status = REJECTED;
-                this._value = value;
-                this._rejectCallbacks.forEach(callback => {
-                   	setTimeout(() => { // callbacks不用清理的原因是因为这里只会执行一次
-                        callback(this._value);
-                    }) 
-                });
-            }
-        }
-        
-        // 3. 执行 tssk 处理函数
         try {
-            task && task(onResolved, onRejected);
-        } catch(e) {
-            onRejected(e);
+            // 2. 调用 task 处理函数，并将状态变更通知的函数传递过去，需要注意 this 的处理
+            task(this._handleResolve.bind(this), this._handleReject.bind(this));
+        } catch (e) {
+            // 3. 如果 task 处理函数发生异常，当做失败来处理
+            this._handleReject(e);
         }
-        
-        // 4. 定义resolvePromise 处理函数
-        this.resolvePromise = (data, resolve, reject) => {
-            if (data === undefined) {
-                // 1. data 为 undefined 时，即 then 回调没有返回值时，以上个 Promise 的结果传递
-                resolve(this._value);
-            } else if (data instanceof Promise) {
-                // 2. data 为 Promise 类型
-                data.then(v => this.resolvePromise(v, resolve, reject));
-            } else if (typeof data === 'object') {
-              	// 3. data 为 thenable 对象
-                let then = data.then;
-                if (then instanceof Function) {
+    }
+
+    /**
+     * resolve 的状态变更处理
+     */
+    _handleResolve(value) {
+        if (this._status === this.PENDING) {
+            if (value instanceof Promise) {
+                // 1. 如果 value 是 Promise，那么等待 Promise 状态结果出来后，再重新做状态变更处理
+                try {
+                    // 这里之所以不需要用 bind 来注意 this 问题是因为使用了箭头函数
+                    // 这里也可以写成 value.then(this._handleResole.bind(this), this._handleReject.bind(this))
+                    value.then(v => {
+                            this._handleResolve(v);
+                        },
+                        err => {
+                            this._handleReject(err);
+                        });
+                } catch(e) {
+                    this._handleReject(e);
+                }
+            } else if (value && value.then instanceof Function) {
+                // 2. 如果 value 是具有 then 方法的对象时，那么将这个 then 方法当做 task 处理函数，把状态变更的触发工作交由 then 来处理，注意 this 的处理
+                try {
+                    const then = value.then;
+                    then.call(value, this._handleResolve.bind(this), this._handleReject.bind(this));
+                } catch(e) {
+                    this._handleReject(e);
+                }
+            } else {
+                // 3. 其他类型，状态变更、触发成功的回调
+                this._status = this.RESOLVED;
+                this._value = value;
+                setTimeout(() => {
+                    this._resolvedCallback.forEach(callback => {
+                    callback();
+                });
+            });
+            }
+        }
+    }
+
+    /**
+     * reject 的状态变更处理
+     */
+    _handleReject(value) {
+        if (this._status === this.PENDING) {
+            this._status = this.REJECTED;
+            this._value = value;
+            setTimeout(() => {
+                this._rejectedCallback.forEach(callback => {
+                    callback();
+                });
+            });
+        }
+    }
+
+    /**
+     * then 方法，接收两个可选参数，用于注册回调处理，所以类型也是函数，且有一个参数，接收 Promise 执行结果，同时可返回任意值，作为新 Promise 的执行结果
+     */
+    then(onResolved, onRejected) {
+        // then 方法返回一个新的 Promise，新 Promise 的状态结果依赖于回调函数的返回值
+        return new Promise((resolve, reject) => {
+            // 对回调函数进行一层封装，主要是因为回调函数的执行结果会影响到返回的新 Promise 的状态和结果
+            const _onResolved = () => {
+                // 根据回调函数的返回值，决定如何处理状态变更
+                if (onResolved && onResolved instanceof Function) {
                     try {
-                        then.call(data, v => {
-                            this.resolvePromise(v, resolve, reject);
-                        }, reject);
+                        const result = onResolved(this._value);
+                        resolve(result);
                     } catch(e) {
                         reject(e);
                     }
                 } else {
-                    resolve(data);
+                    // 如果传入非函数类型，则将上个Promise结果传递给下个处理
+                    resolve(this._value);
                 }
-            } else {
-                // 4. 其余类型数据
-                resolve(data);
-            }
-        };
-    }
-    
-    then(resolveCallback, rejectCallback) {
-        // 省略参数类型判断处理
-        let promise;
-        if (this._tatus === PENDING) {
-            // 1. 如果Promise状态还没变更，则先把回调函数放进队列中等待
-           	promise = new Promise((resolve, reject) => {
-               	this._resolveCallbacks.push(() => {
-                    try { // 先处理回调函数，根据回调函数返回值类型来决定何时改变返回的 Promise 状态
-                        let value = resolveCallback && resolveCallback(this._value);
-                    	this.resolvePromise(value, resolve, reject);
-                    } catch (e) {
-                        reject(e);
-                    }
-                });
-                
-                this._rejectCallbacks.push(() => {
+            };
+            const _onRejected = () => {
+                if (onRejected && onRejected instanceof Function) {
                     try {
-                        let value = resolveCallback(this._value);
-                   		 this.resolvePromise(value, resolve, reject);
-                    } catch (e) {
+                        const result = onRejected(this._value);
+                        resolve(result);
+                    } catch(e) {
                         reject(e);
                     }
-                });
-            });
-        } else if (this._status === RESOLVED) {
-            // 2. 如果 Promise 状态为 RESOLVED，那么处理回调，并根据回调决定返回的 Promise 状态变更		  
-            promise = new Promise((resolve, reject) => {
-                try {
-                    setTimeout(() => {
-                        let value = resolveCallback && resolveCallback(this._value);
-                        this.resolvePromise(value, resolve, reject);
-                    });
-                } catch (e) {
-                    reject(e);
+                } else {
+                    reject(this._value);
                 }
-            });
-            
-        } else if (this._status === REJECTED) {
-            promise = new Promise((resolve, reject) => {
-                try {
-                    setTimeout(() => {
-                        let value = rejectCallback && rejectCallback(this._value);
-                        this.resolvePromise(value, resolve, reject);
-                    });
-                } catch (e) {
-                    reject(e);
-                }
-            });
-        }
-        return promise;
+            };
+            // 如果当前 Promise 状态还没变更，则将回调函数放入队列里等待执行
+            // 否则直接创建微任务来处理这些回调函数
+            if (this._status === this.PENDING) {
+                this._resolvedCallback.push(_onResolved);
+                this._rejectedCallback.push(_onRejected);
+            } else if (this._status === this.RESOLVED) {
+                setTimeout(_onResolved);
+            } else if (this._status === this.REJECTED) {
+                setTimeout(_onRejected);
+            }
+        });
     }
-        
+
+    catch(onRejected) {
+        return this.then(null, onRejected);
+    }
+
     static resolve(value) {
         if (value instanceof Promise) {
             return value;
         }
         return new Promise((reso) => {
-           	reso(value);
+            reso(value);
         });
     }
-        
+    
     static reject(value) {
         if (value instanceof Promise) {
             return value;
         }
         return new Promise((reso, reje) => {
-           	reje(value); 
+            reje(value);
         });
     }
 }
 ```
-
-#### function 方式
