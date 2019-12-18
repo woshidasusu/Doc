@@ -1,6 +1,6 @@
 # 面试题收集
 
-**update on：2019-10-09**
+**update on：2019-12-19**
 
 ### CSS
 
@@ -44,6 +44,7 @@
 2. [介绍下 http 1.0 1.1 2.0 协议的区别](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%BD%91%E7%BB%9C/%E8%B0%88%E8%B0%88%E4%B8%89%E4%B8%AAhttp%E7%89%88%E6%9C%AC%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%8C%BA%E5%88%AB.md)
 3. [谈谈 HTTP 状态码](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%BD%91%E7%BB%9C/http%E7%8A%B6%E6%80%81%E7%A0%81.md)
 4. 讲讲缓存、安全
+5. 讲讲 XSS、CSFR 攻击及预防方案
 
 ### 手写
 
@@ -59,11 +60,13 @@
 1.  浏览器渲染过程？
 2.  运行时和执行引擎的交互？
 3.  渲染引擎的渲染策略
+4.  事件循环有哪些任务源，以什么作为优先级取任务源
 
 
 ### 综合
 
 1. 讲讲浏览器从输入 url 后都发生了什么？
 2. 讲讲跨域及解决方案？
-3. 讲讲 XSS、CSFR 攻击及预防方案？
+3. 做过哪些项目，负责什么模块，做了哪些体验优化
+4. 
 
