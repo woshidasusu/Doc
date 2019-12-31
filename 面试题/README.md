@@ -76,5 +76,5 @@
 
 ### 算法
 
-1. 将数组扁平化处理
+1. [将数组扁平化处理](https://github.com/woshidasusu/Doc/blob/master/面试题/算法/数据扁平化处理.md)
 
