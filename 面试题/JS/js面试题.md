@@ -395,7 +395,7 @@ obj = {
 console.log(obj) // [empty*2, 1, 2, splice: f, push: f]
 ```
 
-- [第二题](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/93)
+- [<span id="9.2">第二题</span>](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/93)
 
 ```javascript
 var a = {n: 1};
@@ -434,7 +434,7 @@ console.log(b.x)
 | = oP=                              | 赋值、运算赋值                               |
 | ,                                  | 多重求值                                     |
 
-- [第三题](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/125)
+- [<span id="9.3">第三题</span>](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/125)
 
 ```javascript
 // example 1
@@ -466,7 +466,7 @@ console.log(a[b]);  // c
 
 另外，ES6 中新增了 Map 类型的数据，就是为了扩展对象的键值类型的局限，在 Map 中，键值可以是任意类型，number，string，object 都可以。
 
-- [第四题](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/155)
+- [<span id="9.4">第四题</span>](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/155)
 
 ```javascript
 function Foo() {
@@ -505,7 +505,7 @@ Foo.a();  // 1
 
 以上，就是该题考察的知识点，不难，很基础，理理就清楚了。
 
-- [第四题](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/190)
+- [<span id="9.5">第五题</span>](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/190)
 
 ```javascript
 var name = 'Tom';
@@ -538,7 +538,7 @@ var name = 'Tom';
 })(); // Hello Tom
 ```
 
-- [第五题](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/229)
+- [<span id="9.6">第六题</span>](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/229)
 
 ```javascript
 1 + "1"  // ‘11’
@@ -556,7 +556,7 @@ var name = 'Tom';
 
 对于 'a' + + 'b' 相当于 'a' + (+'b') 运算，此时后面的 `+` 被当做一元运算符处理，即将后面的数据转换成 number 的操作，最后再进行字符串拼接；
 
-- [第六题](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/251)
+- [<span id="9.7">第七题</span>](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/251)
 
 ```javascript
 function wait() {
