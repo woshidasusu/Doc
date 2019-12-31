@@ -1,6 +1,6 @@
 # 面试题收集
 
-**update on：2019-12-19**
+**update on：2019-12-31**
 
 ### CSS
 
@@ -20,10 +20,16 @@
 6. [讲讲模块化发展？](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/JS/js%E9%9D%A2%E8%AF%95%E9%A2%98.md#6)
 7. [全局作用域中，用 const 和 let 声明的变量不在 window 上，那到底在哪里？如何去获取？](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/JS/js%E9%9D%A2%E8%AF%95%E9%A2%98.md#7)
 8. [具名函数表达式（NFE）函数名变量的作用域？](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/JS/js%E9%9D%A2%E8%AF%95%E9%A2%98.md#8)
-9. [push方法和连续赋值下的运算符优先级问题？](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/JS/js%E9%9D%A2%E8%AF%95%E9%A2%98.md#9)
-10. [call和apply的区别是什么，哪个性能更好一些？](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/JS/js%E9%9D%A2%E8%AF%95%E9%A2%98.md#10)
-11. [箭头函数和普通函数的区别？](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/JS/js%E9%9D%A2%E8%AF%95%E9%A2%98.md#11)
-12. [为什么 for 循环嵌套顺序会影响性能？](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/JS/js%E9%9D%A2%E8%AF%95%E9%A2%98.md#12)
+9. [类数组对象的 push 行为？](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/JS/js%E9%9D%A2%E8%AF%95%E9%A2%98.md#9)
+10. [连续赋值的运算符优先级？](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/JS/js%E9%9D%A2%E8%AF%95%E9%A2%98.md#9.2)
+11. [对象的属性 key 值类型？](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/JS/js%E9%9D%A2%E8%AF%95%E9%A2%98.md#9.3)
+12. [自有属性、继承属性、静态方法、实例方法？](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/JS/js%E9%9D%A2%E8%AF%95%E9%A2%98.md#9.4)
+13. [变量的声明提前特性？](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/JS/js%E9%9D%A2%E8%AF%95%E9%A2%98.md#9.5)
+14. [隐式类型转换？](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/JS/js%E9%9D%A2%E8%AF%95%E9%A2%98.md#9.6)
+15. [async 和 await？](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/JS/js%E9%9D%A2%E8%AF%95%E9%A2%98.md#9.7)
+16. [call和apply的区别是什么，哪个性能更好一些？](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/JS/js%E9%9D%A2%E8%AF%95%E9%A2%98.md#10)
+17. [箭头函数和普通函数的区别？](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/JS/js%E9%9D%A2%E8%AF%95%E9%A2%98.md#11)
+18. [为什么 for 循环嵌套顺序会影响性能？](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/JS/js%E9%9D%A2%E8%AF%95%E9%A2%98.md#12)
 
 ### 异步
 
@@ -43,8 +49,10 @@
 1. [谈谈TCP的三次握手和四次挥手](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%BD%91%E7%BB%9C/%E8%B0%88%E8%B0%88TCP%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%92%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B.md)
 2. [介绍下 http 1.0 1.1 2.0 协议的区别](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%BD%91%E7%BB%9C/%E8%B0%88%E8%B0%88%E4%B8%89%E4%B8%AAhttp%E7%89%88%E6%9C%AC%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%8C%BA%E5%88%AB.md)
 3. [谈谈 HTTP 状态码](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%BD%91%E7%BB%9C/http%E7%8A%B6%E6%80%81%E7%A0%81.md)
-4. 讲讲缓存、安全
-5. 讲讲 XSS、CSFR 攻击及预防方案
+
+4. [讲讲强缓存和协商缓存，F5 和 Ctrl + F5 的区别](https://github.com/woshidasusu/Doc/blob/master/面试题/网络/浏览器缓存.md)
+5. 讲讲请求头中常见头部字段的含义
+6. 讲讲 XSS、CSFR 、中间人攻击及预防方案
 
 ### 手写
 
@@ -69,4 +77,11 @@
 2. 讲讲跨域及解决方案？
 3. 做过哪些项目，负责什么模块，做了哪些体验优化
 4. 
+
+
+
+### 算法
+
+1. [将数组扁平化处理](https://github.com/woshidasusu/Doc/blob/master/面试题/算法/数据扁平化处理.md)
+2. 排序算法
 
