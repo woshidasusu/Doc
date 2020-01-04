@@ -52,8 +52,10 @@
 3. [谈谈 HTTP 状态码](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%BD%91%E7%BB%9C/http%E7%8A%B6%E6%80%81%E7%A0%81.md)
 4. [讲讲强缓存和协商缓存，F5 和 Ctrl + F5 的区别](https://github.com/woshidasusu/Doc/blob/master/面试题/网络/浏览器缓存.md)
 5. [讲讲 http 报文中常见头部字段的含义](https://github.com/woshidasusu/Doc/blob/master/面试题/网络/讲讲常见的报文头部字段含义.md)
-6. 讲讲同源限制和 COPS 跨域资源共享解决方案
-7. 讲讲 XSS、CSFR 、中间人攻击及预防方案
+6. [讲讲同源限制和 COPS 跨域资源共享解决方案]( https://github.com/woshidasusu/Doc/blob/master/面试题/网络/讲讲同源策略以及跨域请求的解决方案.md )
+7. 讲讲 XSS、CSRF 、中间人攻击及预防方案
+8. HTTP 和 HTTPS
+9. 前端加密和鉴权
 
 ### 手写
 
@@ -70,6 +72,10 @@
 2.  运行时和执行引擎的交互
 3.  渲染引擎的渲染策略
 4.  事件循环有哪些任务源，以什么作为优先级取任务源
+5.  垃圾回收机制
+6.  内存模型
+7.  内存泄漏
+8.  本地存储
 
 
 ### 综合
