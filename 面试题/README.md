@@ -54,7 +54,7 @@
 5. [讲讲 http 报文中常见头部字段的含义](https://github.com/woshidasusu/Doc/blob/master/面试题/网络/讲讲常见的报文头部字段含义.md)
 6. [讲讲同源限制和 COPS 跨域资源共享解决方案]( https://github.com/woshidasusu/Doc/blob/master/面试题/网络/讲讲同源策略以及跨域请求的解决方案.md )
 7. [讲讲 XSS、CSRF 、中间人攻击及预防方案](https://github.com/woshidasusu/Doc/blob/master/面试题/网络/讲讲XSS和CSRF等攻击及解决方案.md)
-8. HTTP 和 HTTPS
+8. 讲讲 HTTPS
 9. 前端加密和鉴权
 
 ### 手写
@@ -72,10 +72,10 @@
 2.  运行时和执行引擎的交互
 3.  渲染引擎的渲染策略
 4.  事件循环有哪些任务源，以什么作为优先级取任务源
-5.  垃圾回收机制
-6.  内存模型
+5.  垃圾回收机制（标记清除算法-新生代-老生代）
+6.  内存模型（栈-堆）
 7.  内存泄漏
-8.  本地存储
+8.  本地存储（cookie, localStorage, sessionStorage）
 
 
 ### 综合
