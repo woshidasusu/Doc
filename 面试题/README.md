@@ -1,6 +1,6 @@
 # 面试题收集
 
-**update on：2019-12-31**
+**update on：2020-01-09**
 
 ### CSS
 
@@ -75,12 +75,12 @@
 5.  垃圾回收机制（标记清除算法-新生代-老生代）
 6.  内存模型（栈-堆）
 7.  内存泄漏
-8.  本地存储（cookie, localStorage, sessionStorage）
+8.  [本地存储（cookie, localStorage, sessionStorage）](https://github.com/woshidasusu/Doc/blob/master/面试题/浏览器/本地缓存.md)
 
 
 ### 综合
 
-1. 讲讲浏览器从输入 url 后都发生了什么
+1. [讲讲浏览器从输入 url 后都发生了什么](https://github.com/woshidasusu/Doc/blob/master/面试题/综合/从输入URL到页面加载这过程都发生了什么.md)
 2. 做过哪些项目，负责什么模块，做了哪些体验优化
 4. 
 
