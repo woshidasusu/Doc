@@ -31,6 +31,7 @@
 16. [call和apply的区别是什么，哪个性能更好一些？](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/JS/js%E9%9D%A2%E8%AF%95%E9%A2%98.md#10)
 17. [箭头函数和普通函数的区别？](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/JS/js%E9%9D%A2%E8%AF%95%E9%A2%98.md#11)
 18. [为什么 for 循环嵌套顺序会影响性能？](https://github.com/woshidasusu/Doc/blob/master/%E9%9D%A2%E8%AF%95%E9%A2%98/JS/js%E9%9D%A2%E8%AF%95%E9%A2%98.md#12)
+19. 说说 es5 的继承方式
 
 ### 异步
 
@@ -69,9 +70,7 @@
 ### 浏览器
 
 1.  浏览器渲染过程
-2.  运行时和执行引擎的交互
-3.  渲染引擎的渲染策略
-4.  [讲讲 EventLoop 以及任务源](https://github.com/woshidasusu/Doc/blob/master/面试题/浏览器/讲讲EventLoop以及任务源.md)
+2.  [讲讲 EventLoop 以及任务源](https://github.com/woshidasusu/Doc/blob/master/面试题/浏览器/讲讲EventLoop以及任务源.md)
 5.  垃圾回收机制（标记清除算法-新生代-老生代）
 6.  内存模型（栈-堆）
 7.  内存泄漏
