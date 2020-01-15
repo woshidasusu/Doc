@@ -73,7 +73,7 @@
 2.  [讲讲 EventLoop 以及任务源](https://github.com/woshidasusu/Doc/blob/master/面试题/浏览器/讲讲EventLoop以及任务源.md)
 5.  垃圾回收机制（标记清除算法-新生代-老生代）
 6.  内存模型（栈-堆）
-7.  内存泄漏
+7.  [内存泄漏](https://github.com/woshidasusu/Doc/blob/master/面试题/浏览器/内存泄漏.md)
 8.  [本地存储（cookie, localStorage, sessionStorage）](https://github.com/woshidasusu/Doc/blob/master/面试题/浏览器/本地缓存.md)
 
 
