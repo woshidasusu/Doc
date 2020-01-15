@@ -71,9 +71,8 @@
 
 1.  [浏览器渲染过程](https://github.com/woshidasusu/Doc/blob/master/面试题/浏览器/浏览器渲染过程.md)
 2.  [讲讲 EventLoop 以及任务源](https://github.com/woshidasusu/Doc/blob/master/面试题/浏览器/讲讲EventLoop以及任务源.md)
-5.  垃圾回收机制（标记清除算法-新生代-老生代）
-6.  内存模型（栈-堆）
-7.  [内存泄漏](https://github.com/woshidasusu/Doc/blob/master/面试题/浏览器/内存泄漏.md)
+5.  内存模型以及垃圾回收机制
+6.  [内存泄漏概念、监控和分析](https://github.com/woshidasusu/Doc/blob/master/面试题/浏览器/内存泄漏.md)
 8.  [本地存储（cookie, localStorage, sessionStorage）](https://github.com/woshidasusu/Doc/blob/master/面试题/浏览器/本地缓存.md)
 
 
