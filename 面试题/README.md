@@ -69,18 +69,22 @@
 
 ### 浏览器
 
-1.  [浏览器渲染过程](https://github.com/woshidasusu/Doc/blob/master/面试题/浏览器/浏览器渲染过程.md)
-2.  [讲讲 EventLoop 以及任务源](https://github.com/woshidasusu/Doc/blob/master/面试题/浏览器/讲讲EventLoop以及任务源.md)
-5.  内存模型以及垃圾回收机制
-6.  [内存泄漏概念、监控和分析](https://github.com/woshidasusu/Doc/blob/master/面试题/浏览器/内存泄漏.md)
-8.  [本地存储（cookie, localStorage, sessionStorage）](https://github.com/woshidasusu/Doc/blob/master/面试题/浏览器/本地缓存.md)
+1.  [讲讲浏览器从输入 url 后都发生了什么](https://github.com/woshidasusu/Doc/blob/master/面试题/综合/从输入URL到页面加载这过程都发生了什么.md)
+2.  [浏览器渲染过程](https://github.com/woshidasusu/Doc/blob/master/面试题/浏览器/浏览器渲染过程.md)
+3.  [讲讲 EventLoop 以及任务源](https://github.com/woshidasusu/Doc/blob/master/面试题/浏览器/讲讲EventLoop以及任务源.md)
+4.  [内存分配以及垃圾回收机制](https://github.com/woshidasusu/Doc/blob/master/面试题/浏览器/内存模型.md)
+5.  [内存泄漏概念、监控和分析](https://github.com/woshidasusu/Doc/blob/master/面试题/浏览器/内存泄漏.md)
+6.  [本地存储（cookie, localStorage, sessionStorage）](https://github.com/woshidasusu/Doc/blob/master/面试题/浏览器/本地缓存.md)
 
 
 ### 综合
 
-1. [讲讲浏览器从输入 url 后都发生了什么](https://github.com/woshidasusu/Doc/blob/master/面试题/综合/从输入URL到页面加载这过程都发生了什么.md)
 2. 做过哪些项目，负责什么模块，做了哪些体验优化
-4. 
+2. 评价下同事，跟他们相比，优势和劣势是什么
+3. 你是如何学习的
+4. 性格缺点
+5. 职业规划
+6. 
 
 ### 框架
 
