@@ -43,8 +43,45 @@ whereis psql
 
 **\\s**：查看历史命令
 
+**x**：切换数据为行显示还是列显示
+
 **\\h [sql关键字]**：查看 sql 语法帮助，当不带参数时，列举所有 sql 关键字
 
 注意，表是与 schema 有关的，登录一个数据库里，用不同的 schema 查看，是会得到不一样的表
 
 所以，当使用 \\d 却显示没有表时，先确认下当前的 schema 以及数据库所有的 schema，然后试试切换 schema 或者直接使用 \\c 连接数据库时顺便指定用户，再看看有没有表
+
+### 常用查询
+
+- 查询当前数据库的连接状态
+
+```sql
+select * from pg_stat_activity;
+
+select datname,pid,application_name,state,query_start from pg_stat_activity order by query_start desc;
+```
+
+ 结果集会显示出当前连接的数据库名，用户，IP地址，连接开始时间，查询的语句等
+
+- 查询数据库剩余连接数
+
+```sql
+select max_conn-now_conn as resi_conn from (select setting::int8 as max_conn,(select count(*) from pg_stat_activity) as now_conn from pg_settings where name = 'max_connections') t;
+```
+
+- 查看当前总共正在使用的连接数
+
+```sql
+select count(1) from pg_stat_activity;
+```
+
+- 查看系统允许的最大连接数
+
+```sql
+show max_connections;
+```
+
+- 查询各种配置项 pg_settings
+
+[ https://blog.csdn.net/gguxxing008/article/details/80374099 ]( https://blog.csdn.net/gguxxing008/article/details/80374099 )
+
