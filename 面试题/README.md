@@ -99,5 +99,6 @@
 
 ### 实战
 
-1. 华为面试
+1. [华为德科面试](https://github.com/woshidasusu/Doc/blob/master/面试题/实战/华为德科面试.md)
+2. [腾讯CDC面试](https://github.com/woshidasusu/Doc/blob/master/面试题/腾讯CDC面试.md)
 
