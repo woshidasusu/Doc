@@ -91,7 +91,7 @@
 1. [谈谈数据响应式系统](https://github.com/woshidasusu/Doc/blob/master/面试题/框架/谈谈数据响应式系统.md)
 2. 讲讲 Rxjs 的核心和重点，都用过哪些操作符
 3. 讲讲 angular2 是如何渲染优化处理的
-4. 说说 git 的使用
+4. [说说 git 的使用](https://github.com/woshidasusu/Doc/blob/master/面试题/框架/说说git使用.md)
 
 ### 算法
 
