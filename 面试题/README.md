@@ -77,11 +77,10 @@
 5.  [内存泄漏概念、监控和分析](https://github.com/woshidasusu/Doc/blob/master/面试题/浏览器/内存泄漏.md)
 6.  [本地存储（cookie, localStorage, sessionStorage）](https://github.com/woshidasusu/Doc/blob/master/面试题/浏览器/本地缓存.md)
 
-
 ### 综合
 
+1. 评价下同事，跟他们相比，优势和劣势是什么/说说你的优点
 2. 做过哪些项目，负责什么模块，做了哪些体验优化
-2. 评价下同事，跟他们相比，优势和劣势是什么/说说你的优点
 3. 你是如何学习的
 4. 用两个词概括下你的性格
 5. 职业规划
@@ -91,6 +90,8 @@
 
 1. [谈谈数据响应式系统](https://github.com/woshidasusu/Doc/blob/master/面试题/框架/谈谈数据响应式系统.md)
 2. 讲讲 Rxjs 的核心和重点，都用过哪些操作符
+3. 讲讲 angular2 是如何渲染优化处理的
+4. 说说 git 的使用
 
 ### 算法
 
