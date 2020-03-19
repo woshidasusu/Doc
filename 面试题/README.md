@@ -93,6 +93,7 @@
 2. 讲讲 Rxjs 的核心和重点，都用过哪些操作符
 3. [讲讲 angular2 是如何渲染优化处理的](https://github.com/woshidasusu/Doc/blob/master/面试题/框架/讲讲angular的渲染优化.md)
 4. [说说 git 的使用](https://github.com/woshidasusu/Doc/blob/master/面试题/框架/说说git使用.md)
+5. redux 思想和原理
 
 ### 算法
 
