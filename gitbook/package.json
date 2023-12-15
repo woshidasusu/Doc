@@ -1,0 +1,12 @@
+{
+  "name": "hexo-site",
+  "version": "0.0.0",
+  "scripts": {
+    "gitbook": "gitbook",
+    "start": "gitbook serve",
+    "build": "gitbook build"
+  },
+  "dependencies": {
+    "gitbook-cli": "^2.3.2"
+  }
+}
