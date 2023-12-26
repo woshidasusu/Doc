@@ -2,7 +2,7 @@
 
 本篇是基于上一篇：[教你一步步发布一个开源库到 JCenter](https://www.jianshu.com/p/91a55d8f7055) 介绍的流程、步骤中所遇到的问题，所以没看过上一篇的，可以去看看哈~
 
-1. **Error:No service of type Factory<LoggingManagerInternal> available in ProjectScopeServices.**  
+1. **Error:No service of type Factory\<LoggingManagerInternal\> available in ProjectScopeServices.**  
 
 原因：android-maven-gradle-plugin 插件的 bug  
 

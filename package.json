@@ -1,12 +1,12 @@
 {
-  "name": "note",
+  "name": "doc",
   "version": "1.0.0",
-  "type": "module",
   "scripts": {
     "build": "vuepress-cli build docs --clean-cache --clean-temp",
     "dev": "vuepress-cli dev docs --clean-cache --clean-temp",
     "clean": "rimraf docs/.vuepress/.temp docs/.vuepress/.cache docs/.vuepress/dist dist",
-    "serve": "anywhere -s -h localhost -d dist"
+    "serve": "anywhere -s -h localhost -d dist",
+    "menu": "node docs/.vuepress/scripts/autoMenu.js"
   },
   "dependencies": {
     "@vuepress/bundler-vite": "2.0.0-rc.0",
@@ -30,6 +30,8 @@
     "vue": "^3.3.9"
   },
   "devDependencies": {
+    "fs-extra": "^11.2.0",
+    "path": "^0.12.7",
     "rimraf": "^5.0.5",
     "sort-package-json": "^2.6.0"
   },

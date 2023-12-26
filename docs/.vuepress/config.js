@@ -15,15 +15,14 @@ const require = createRequire(import.meta.url);
 const isProd = process.env.NODE_ENV === "production";
 
 export default defineUserConfig({
-  base: "/",
   dest: "dist",
-  publicPath: "public",
+  public: "public",
   head,
   locales: {
     "/": {
       lang: "zh-CN",
-      title: "速查笔记",
-      description: "速查笔记",
+      title: "dasu",
+      description: "我过往编写的博客、笔记资料平台",
     },
   },
 
@@ -33,7 +32,7 @@ export default defineUserConfig({
 
   // configure default theme
   theme: defaultTheme({
-    logo: "images/img.jpg",
+    logo: "/images/img.jpg",
     repo: "woshidasusu/note",
     docsDir: "docs",
 
@@ -46,7 +45,7 @@ export default defineUserConfig({
         selectLanguageText: "选择语言",
         selectLanguageAriaLabel: "选择语言",
         // sidebar
-        sidebar: 'auto',
+        sidebar: "auto",
         // page meta
         editLinkText: "在 GitHub 上编辑此页",
         lastUpdatedText: "上次更新",
@@ -96,6 +95,6 @@ export default defineUserConfig({
       componentsDir: path.resolve(__dirname, "./components"),
     }),
     // only enable shiki plugin in production mode
-    isProd ? shikiPlugin({ theme: "dark-plus" }) : [],
+    // isProd ? shikiPlugin({ theme: "dark-plus" }) : [],
   ],
 });

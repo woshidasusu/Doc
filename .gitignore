@@ -25,3 +25,4 @@ _book
 *.pdf
 .temp
 .cache
+dist

@@ -68,19 +68,19 @@ Java 语言有很多很多特性：泛型、反射、代理、并发、等等，
 
 - 类
 
-泛型的使用： public class BaseView<T>{}
+泛型的使用： public class BaseView\<T\>{}
 
-定义时类型限定：  public class BaseView<T extend Object>{}
+定义时类型限定：  public class BaseView\<T extend Object\>{}
 
 使用时类型限定：  private void test(BaseView<? extend Object> o){}
 
 - 方法参数
 
-泛型的使用：public <T> void test(T t){}
+泛型的使用：public \<T\> void test(T t){}
 
-类型限定：  public <T extend Object>  void test(T t){}
+类型限定：  public \<T extend Object\>  void test(T t){}
 
-返回值泛型限定： public <T> T test(){}
+返回值泛型限定： public \<T\> T test(){}
 
 ####  反射
 

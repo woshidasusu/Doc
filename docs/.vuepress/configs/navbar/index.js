@@ -1,31 +1,15 @@
-/**
- * 顶部导航栏菜单配置
- */
+import 博客_Android from "./博客_Android.js";
+import 博客_前端入门 from "./博客_前端入门.js";
+import 博客_2020至2022 from "./博客_2020至2022.js";
+import 年总结 from "./年总结.js";
+import 速查笔记 from "./速查笔记.js";
+import 面试题 from "./面试题.js";
+
 export const navbar = [
-  "/java速查/README.md",
-  "/linux速查/README.md",
-  "/nginx速查/README.md",
-  "/psql速查/README.md",
-  "/vim速查/README.md",
-  "/云服务速查/README.md",
-  {
-    text: "docker",
-    children: [
-      "/docker速查/介绍.md",
-      "/docker速查/docker命令.md",
-      "/docker速查/Dockerfile.md",
-    ],
-  },
-  {
-    text: "docker-compose",
-    children: [
-      "/docker-compose速查/介绍.md",
-      "/docker-compose速查/docker-compose命令.md",
-      "/docker-compose速查/docker-compose模板.md",
-    ],
-  },
-  {
-    text: "面试题积累",
-    link: "/面试题积累",
-  },
+  速查笔记,
+  博客_2020至2022,
+  博客_前端入门,
+  博客_Android,
+  年总结,
+  面试题,
 ];
