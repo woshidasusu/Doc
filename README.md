@@ -16,8 +16,7 @@ pnpm -v
 ## 构建
 
 1. `pnpm install`
-2. ``
-3.
+2. `pnpm run build`
 
 ## 一些依赖库说明
 
