@@ -1,0 +1,40 @@
+{
+  "name": "note",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "vuepress-cli build docs --clean-cache --clean-temp",
+    "dev": "vuepress-cli dev docs --clean-cache --clean-temp",
+    "clean": "rimraf docs/.vuepress/.temp docs/.vuepress/.cache docs/.vuepress/dist dist",
+    "serve": "anywhere -s -h localhost -d dist"
+  },
+  "dependencies": {
+    "@vuepress/bundler-vite": "2.0.0-rc.0",
+    "@vuepress/bundler-webpack": "2.0.0-rc.0",
+    "@vuepress/cli": "2.0.0-rc.0",
+    "@vuepress/client": "2.0.0-rc.0",
+    "@vuepress/core": "2.0.0-rc.0",
+    "@vuepress/plugin-back-to-top": "2.0.0-rc.0",
+    "@vuepress/plugin-docsearch": "2.0.0-rc.0",
+    "@vuepress/plugin-external-link-icon": "2.0.0-rc.0",
+    "@vuepress/plugin-medium-zoom": "2.0.0-rc.0",
+    "@vuepress/plugin-nprogress": "2.0.0-rc.0",
+    "@vuepress/plugin-pwa-popup": "2.0.0-rc.0",
+    "@vuepress/plugin-register-components": "2.0.0-rc.0",
+    "@vuepress/plugin-search": "2.0.0-rc.0",
+    "@vuepress/plugin-shiki": "2.0.0-rc.0",
+    "@vuepress/theme-default": "2.0.0-rc.0",
+    "@vuepress/utils": "2.0.0-rc.0",
+    "anywhere": "^1.6.0",
+    "sass-loader": "^13.3.2",
+    "vue": "^3.3.9"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.5",
+    "sort-package-json": "^2.6.0"
+  },
+  "packageManager": "pnpm@8.11.0",
+  "engines": {
+    "node": ">=18.16.0"
+  }
+}
