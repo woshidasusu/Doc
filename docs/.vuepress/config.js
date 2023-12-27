@@ -33,7 +33,7 @@ export default defineUserConfig({
   // configure default theme
   theme: defaultTheme({
     logo: "/images/img.jpg",
-    repo: "woshidasusu/note",
+    repo: "woshidasusu/Doc",
     docsDir: "docs",
 
     // theme-level locales config

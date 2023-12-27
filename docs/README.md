@@ -13,7 +13,7 @@ actions:
     link: http://59.110.12.45:9000/
     type: secondary
   - text: uidoc
-    link: http://59.110.12.45:9004/
+    link: http://59.110.12.45:9005/
     type: secondary
   - text: 博客圆
     link: https://www.cnblogs.com/dasusu/
