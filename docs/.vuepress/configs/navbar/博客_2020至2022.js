@@ -2,28 +2,12 @@ export default {
   "text": "博客_2020至2022",
   "children": [
     {
-      "text": "APP离线应用实现原理",
-      "link": "/博客_2020至2022/APP离线应用实现原理.md"
-    },
-    {
-      "text": "shell常用命令",
-      "link": "/博客_2020至2022/shell常用命令.md"
-    },
-    {
-      "text": "node-sass安装的填坑记录",
-      "link": "/博客_2020至2022/node-sass安装的填坑记录.md"
-    },
-    {
       "text": "shell语法",
       "link": "/博客_2020至2022/shell语法.md"
     },
     {
-      "text": "vuex源码解析",
-      "link": "/博客_2020至2022/vuex源码解析.md"
-    },
-    {
-      "text": "whistle代理神器介绍",
-      "link": "/博客_2020至2022/whistle代理神器介绍.md"
+      "text": "shell常用命令",
+      "link": "/博客_2020至2022/shell常用命令.md"
     },
     {
       "text": "什么是微前端",
@@ -36,14 +20,6 @@ export default {
     {
       "text": "发现个数组sort排序bug",
       "link": "/博客_2020至2022/发现个数组sort排序bug.md"
-    },
-    {
-      "text": "如何在老项目里渐进式引入vue技术栈",
-      "link": "/博客_2020至2022/如何在老项目里渐进式引入vue技术栈.md"
-    },
-    {
-      "text": "日常IE兼容问题记录",
-      "link": "/博客_2020至2022/日常IE兼容问题记录.md"
     },
     {
       "text": "模拟实现promise",

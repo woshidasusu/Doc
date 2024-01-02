@@ -38,20 +38,20 @@ export default {
       ]
     },
     {
-      "text": "FTP超时问题",
-      "children": [
-        {
-          "text": "记录apache的FTPClient一些问题",
-          "link": "/博客_Android/FTP超时问题/记录apache的FTPClient一些问题.md"
-        }
-      ]
-    },
-    {
       "text": "Animation动画原理",
       "children": [
         {
           "text": "View动画Animation原理",
           "link": "/博客_Android/Animation动画原理/View动画Animation原理.md"
+        }
+      ]
+    },
+    {
+      "text": "FTP超时问题",
+      "children": [
+        {
+          "text": "记录apache的FTPClient一些问题",
+          "link": "/博客_Android/FTP超时问题/记录apache的FTPClient一些问题.md"
         }
       ]
     },
@@ -120,20 +120,20 @@ export default {
       ]
     },
     {
-      "text": "TextView的各种长度测量",
-      "children": [
-        {
-          "text": "TextView各种长度测量",
-          "link": "/博客_Android/TextView的各种长度测量/TextView各种长度测量.md"
-        }
-      ]
-    },
-    {
       "text": "TextView绘制过程",
       "children": [
         {
           "text": "TextView绘制过程",
           "link": "/博客_Android/TextView绘制过程/TextView绘制过程.md"
+        }
+      ]
+    },
+    {
+      "text": "TextView的各种长度测量",
+      "children": [
+        {
+          "text": "TextView各种长度测量",
+          "link": "/博客_Android/TextView的各种长度测量/TextView各种长度测量.md"
         }
       ]
     },
@@ -317,12 +317,12 @@ export default {
       "text": "属性动画ValueAnimator原理",
       "children": [
         {
-          "text": "属性动画ValueAnimator全解析",
-          "link": "/博客_Android/属性动画ValueAnimator原理/属性动画ValueAnimator全解析.md"
-        },
-        {
           "text": "属性动画原理解析",
           "link": "/博客_Android/属性动画ValueAnimator原理/属性动画原理解析.md"
+        },
+        {
+          "text": "属性动画ValueAnimator全解析",
+          "link": "/博客_Android/属性动画ValueAnimator原理/属性动画ValueAnimator全解析.md"
         }
       ]
     },
@@ -368,12 +368,12 @@ export default {
           "link": "/博客_Android/Gradle脚本/Gradle系列博客整理.md"
         },
         {
-          "text": "脚本篇（下）---Gradle脚本",
-          "link": "/博客_Android/Gradle脚本/脚本篇（下）---Gradle脚本.md"
-        },
-        {
           "text": "脚本篇（上）---批处理脚本",
           "link": "/博客_Android/Gradle脚本/脚本篇（上）---批处理脚本.md"
+        },
+        {
+          "text": "脚本篇（下）---Gradle脚本",
+          "link": "/博客_Android/Gradle脚本/脚本篇（下）---Gradle脚本.md"
         }
       ]
     },
@@ -402,12 +402,12 @@ export default {
           "link": "/博客_Android/RecyclerView解析/RecyclerView全功能介绍（下）.md"
         },
         {
-          "text": "RecyclerView各功能使用示例",
-          "link": "/博客_Android/RecyclerView解析/RecyclerView各功能使用示例.md"
-        },
-        {
           "text": "RecyclerView全部功能介绍（上）",
           "link": "/博客_Android/RecyclerView解析/RecyclerView全部功能介绍（上）.md"
+        },
+        {
+          "text": "RecyclerView各功能使用示例",
+          "link": "/博客_Android/RecyclerView解析/RecyclerView各功能使用示例.md"
         }
       ]
     },
@@ -423,22 +423,18 @@ export default {
           "link": "/博客_Android/Java核心36讲/第一讲谈谈你对Java平台的理解.md"
         },
         {
-          "text": "谈谈final_finally_finalize有什么不同",
-          "link": "/博客_Android/Java核心36讲/谈谈final_finally_finalize有什么不同.md"
-        },
-        {
           "text": "谈谈你对四种引用的认识",
           "link": "/博客_Android/Java核心36讲/谈谈你对四种引用的认识.md"
+        },
+        {
+          "text": "谈谈final_finally_finalize有什么不同",
+          "link": "/博客_Android/Java核心36讲/谈谈final_finally_finalize有什么不同.md"
         }
       ]
     },
     {
       "text": "build.gradle的解析",
       "children": [
-        {
-          "text": "build.gradle的解析",
-          "link": "/博客_Android/build.gradle的解析/build.gradle的解析.md"
-        },
         {
           "text": "gradle学习",
           "link": "/博客_Android/build.gradle的解析/gradle学习.md"
@@ -450,6 +446,10 @@ export default {
         {
           "text": "groovy介绍",
           "link": "/博客_Android/build.gradle的解析/groovy介绍.md"
+        },
+        {
+          "text": "build.gradle的解析",
+          "link": "/博客_Android/build.gradle的解析/build.gradle的解析.md"
         },
         {
           "text": "如何用Android Studio看build.gradle相关源码",

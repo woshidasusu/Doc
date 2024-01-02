@@ -38,12 +38,12 @@ export default {
       "link": "/博客_前端入门/前端入门13-JavaScript进阶之原型.md"
     },
     {
-      "text": "前端入门14-JavaScript进阶之继承",
-      "link": "/博客_前端入门/前端入门14-JavaScript进阶之继承.md"
-    },
-    {
       "text": "前端入门15-JavaScript进阶之原型链",
       "link": "/博客_前端入门/前端入门15-JavaScript进阶之原型链.md"
+    },
+    {
+      "text": "前端入门14-JavaScript进阶之继承",
+      "link": "/博客_前端入门/前端入门14-JavaScript进阶之继承.md"
     },
     {
       "text": "前端入门16-JavaScript进阶之EC和VO",
@@ -110,8 +110,8 @@ export default {
       "link": "/博客_前端入门/前端入门5-CSS-flex.md"
     },
     {
-      "text": "前端入门6-JavaScript-客户端api&jQurey",
-      "link": "/博客_前端入门/前端入门6-JavaScript-客户端api&jQurey.md"
+      "text": "前端入门7-JavaScript语法之相关术语",
+      "link": "/博客_前端入门/前端入门7-JavaScript语法之相关术语.md"
     },
     {
       "text": "前端入门8-JavaScript语法之数据类型",
@@ -122,8 +122,8 @@ export default {
       "link": "/博客_前端入门/前端入门9-JavaScript语法之运算符.md"
     },
     {
-      "text": "前端入门7-JavaScript语法之相关术语",
-      "link": "/博客_前端入门/前端入门7-JavaScript语法之相关术语.md"
+      "text": "前端入门6-JavaScript-客户端api&jQurey",
+      "link": "/博客_前端入门/前端入门6-JavaScript-客户端api&jQurey.md"
     }
   ]
 }
