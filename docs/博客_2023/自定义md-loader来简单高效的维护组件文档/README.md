@@ -146,10 +146,10 @@ loader 工作原理：
 1. 基于 markdown-it 系列插件将 md 转成 html
 2. 如果 md 里没有 ::: demo 场景，则直接将转成的 html 放到 vue 的 template 块里，交给 vue-loader 解析
 3. 如果有 ::: demo 场景，进入自定义解析 ::: demo 流程
-   - 将 demo 里的 ```vue 代码块字符串化后放到 <demo-block> 标签里的 highlight 插槽上。
+   - 将 demo 里的 ```vue 代码块字符串化后放到 `<demo-block>` 标签里的 highlight 插槽上。
      - 字符串化的过程做了系列代码的高亮、行号等显示处理
-   - 再把 ```vue 代码块封装到单独的 vue 组件里，组件内部自动命名，然后给挂载到 <demo-block> 标签里的 source 插槽上
-   - <demo-block> 组件就可以用 highlight 插槽来把代码块呈现出来，同时用 source 插槽来引用 loader 生成的子组件，以达到代码块运行的效果
+   - 再把 ```vue 代码块封装到单独的 vue 组件里，组件内部自动命名，然后给挂载到 `<demo-block>` 标签里的 source 插槽上
+   - `<demo-block>` 组件就可以用 highlight 插槽来把代码块呈现出来，同时用 source 插槽来引用 loader 生成的子组件，以达到代码块运行的效果
 
 ### require.context 自动注册路由
 
