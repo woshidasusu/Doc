@@ -1,4 +1,4 @@
-# 如何简单高效的维护 UI 组件使用说明文档
+# 自定义 md-loader 来简单高效的维护组件文档
 
 个人觉得，组件库最难的不是开发，而是使用，怎么才能让组内同事都用起来，这才是关键
 
@@ -140,8 +140,7 @@ export default {
 
 原理细节和源码可以移步到相关链接查看，这里简单概述下 md-loader 内部原理，一句话解释：
 
-将 md 转成的 html 包裹到 vue 的 template 标签内，因此 md 可以直接被当作 vue 组件在代码里被引用，同时自定义扩展 md 的 ::: demo 语法，以便支持组件效果和示例代码可以呈现
-
+**将 md 转成的 html 包裹到 vue 的 template 标签内，因此 md 可以直接被当作 vue 组件在代码里被引用，同时自定义扩展 md 的 ::: demo 语法，以便支持组件效果和示例代码可以呈现**
 loader 工作原理：
 
 1. 基于 markdown-it 系列插件将 md 转成 html
@@ -175,7 +174,6 @@ files.keys().forEach((filePath) => {
 ### monaco-editor 在线代码编辑器
 
 [Vue 实现在线代码编辑和预览](https://www.yuque.com/luchx/ziwg5m/ryqc71)
-
 
 ## 小结
 
