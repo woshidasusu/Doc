@@ -18,6 +18,12 @@ pnpm -v
 1. `pnpm install`
 2. `pnpm run build`
 
+## 菜单更新
+
+1. `pnpm run menu`
+2. 编辑 docs/.vuepress/configs/navbar/index.js
+3. 重新构建
+
 ## 一些依赖库说明
 
 - `anywhere` 是一个简单的静态文件服务器，用于在本地快速启动一个 Web 服务器并提供静态文件的访问。
