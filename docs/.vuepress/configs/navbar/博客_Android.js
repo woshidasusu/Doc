@@ -47,24 +47,6 @@ export default {
       ]
     },
     {
-      "text": "FTP超时问题",
-      "children": [
-        {
-          "text": "记录apache的FTPClient一些问题",
-          "link": "/博客_Android/FTP超时问题/记录apache的FTPClient一些问题.md"
-        }
-      ]
-    },
-    {
-      "text": "Fragment",
-      "children": [
-        {
-          "text": "再来一篇Fragment懒加载",
-          "link": "/博客_Android/Fragment/再来一篇Fragment懒加载.md"
-        }
-      ]
-    },
-    {
       "text": "Fresco二次封装",
       "children": [
         {
@@ -74,11 +56,29 @@ export default {
       ]
     },
     {
+      "text": "FTP超时问题",
+      "children": [
+        {
+          "text": "记录apache的FTPClient一些问题",
+          "link": "/博客_Android/FTP超时问题/记录apache的FTPClient一些问题.md"
+        }
+      ]
+    },
+    {
       "text": "Gank客户端",
       "children": [
         {
           "text": "又一个Gank客户端来啦",
           "link": "/博客_Android/Gank客户端/又一个Gank客户端来啦.md"
+        }
+      ]
+    },
+    {
+      "text": "Fragment",
+      "children": [
+        {
+          "text": "再来一篇Fragment懒加载",
+          "link": "/博客_Android/Fragment/再来一篇Fragment懒加载.md"
         }
       ]
     },
@@ -120,20 +120,20 @@ export default {
       ]
     },
     {
-      "text": "TextView绘制过程",
-      "children": [
-        {
-          "text": "TextView绘制过程",
-          "link": "/博客_Android/TextView绘制过程/TextView绘制过程.md"
-        }
-      ]
-    },
-    {
       "text": "TextView的各种长度测量",
       "children": [
         {
           "text": "TextView各种长度测量",
           "link": "/博客_Android/TextView的各种长度测量/TextView各种长度测量.md"
+        }
+      ]
+    },
+    {
+      "text": "TextView绘制过程",
+      "children": [
+        {
+          "text": "TextView绘制过程",
+          "link": "/博客_Android/TextView绘制过程/TextView绘制过程.md"
         }
       ]
     },
@@ -183,20 +183,20 @@ export default {
       ]
     },
     {
-      "text": "焦点机制",
-      "children": [
-        {
-          "text": "焦点机制（上）--requestFocus",
-          "link": "/博客_Android/焦点机制/焦点机制（上）--requestFocus.md"
-        }
-      ]
-    },
-    {
       "text": "断点续传",
       "children": [
         {
           "text": "讲讲断点续传那点事",
           "link": "/博客_Android/断点续传/讲讲断点续传那点事.md"
+        }
+      ]
+    },
+    {
+      "text": "焦点机制",
+      "children": [
+        {
+          "text": "焦点机制（上）--requestFocus",
+          "link": "/博客_Android/焦点机制/焦点机制（上）--requestFocus.md"
         }
       ]
     },
@@ -317,12 +317,12 @@ export default {
       "text": "属性动画ValueAnimator原理",
       "children": [
         {
-          "text": "属性动画原理解析",
-          "link": "/博客_Android/属性动画ValueAnimator原理/属性动画原理解析.md"
-        },
-        {
           "text": "属性动画ValueAnimator全解析",
           "link": "/博客_Android/属性动画ValueAnimator原理/属性动画ValueAnimator全解析.md"
+        },
+        {
+          "text": "属性动画原理解析",
+          "link": "/博客_Android/属性动画ValueAnimator原理/属性动画原理解析.md"
         }
       ]
     },
@@ -423,12 +423,12 @@ export default {
           "link": "/博客_Android/Java核心36讲/第一讲谈谈你对Java平台的理解.md"
         },
         {
-          "text": "谈谈你对四种引用的认识",
-          "link": "/博客_Android/Java核心36讲/谈谈你对四种引用的认识.md"
-        },
-        {
           "text": "谈谈final_finally_finalize有什么不同",
           "link": "/博客_Android/Java核心36讲/谈谈final_finally_finalize有什么不同.md"
+        },
+        {
+          "text": "谈谈你对四种引用的认识",
+          "link": "/博客_Android/Java核心36讲/谈谈你对四种引用的认识.md"
         }
       ]
     },
@@ -436,20 +436,20 @@ export default {
       "text": "build.gradle的解析",
       "children": [
         {
-          "text": "gradle学习",
-          "link": "/博客_Android/build.gradle的解析/gradle学习.md"
+          "text": "build.gradle的解析",
+          "link": "/博客_Android/build.gradle的解析/build.gradle的解析.md"
         },
         {
-          "text": "gradle的android插件讲解",
-          "link": "/博客_Android/build.gradle的解析/gradle的android插件讲解.md"
+          "text": "gradle学习",
+          "link": "/博客_Android/build.gradle的解析/gradle学习.md"
         },
         {
           "text": "groovy介绍",
           "link": "/博客_Android/build.gradle的解析/groovy介绍.md"
         },
         {
-          "text": "build.gradle的解析",
-          "link": "/博客_Android/build.gradle的解析/build.gradle的解析.md"
+          "text": "gradle的android插件讲解",
+          "link": "/博客_Android/build.gradle的解析/gradle的android插件讲解.md"
         },
         {
           "text": "如何用Android Studio看build.gradle相关源码",

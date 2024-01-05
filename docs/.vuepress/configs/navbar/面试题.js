@@ -25,28 +25,15 @@ export default {
       ]
     },
     {
-      "text": "2019-设计模式",
-      "children": [
-        {
-          "text": "观察者模式和发布订阅模式的区别",
-          "link": "/面试题/2019/设计模式/观察者模式和发布订阅模式的区别.md"
-        },
-        {
-          "text": "说说你用过的设计模式",
-          "link": "/面试题/2019/设计模式/说说你用过的设计模式.md"
-        }
-      ]
-    },
-    {
       "text": "2019-JS",
       "children": [
         {
-          "text": "说说es5的继承方式",
-          "link": "/面试题/2019/JS/说说es5的继承方式.md"
-        },
-        {
           "text": "js面试题",
           "link": "/面试题/2019/JS/js面试题.md"
+        },
+        {
+          "text": "说说es5的继承方式",
+          "link": "/面试题/2019/JS/说说es5的继承方式.md"
         }
       ]
     },
@@ -64,6 +51,19 @@ export default {
       ]
     },
     {
+      "text": "2019-设计模式",
+      "children": [
+        {
+          "text": "观察者模式和发布订阅模式的区别",
+          "link": "/面试题/2019/设计模式/观察者模式和发布订阅模式的区别.md"
+        },
+        {
+          "text": "说说你用过的设计模式",
+          "link": "/面试题/2019/设计模式/说说你用过的设计模式.md"
+        }
+      ]
+    },
+    {
       "text": "2019-异步",
       "children": [
         {
@@ -71,12 +71,12 @@ export default {
           "link": "/面试题/2019/异步/Promise.md"
         },
         {
-          "text": "setTimeout&Promise&Async_Await区别",
-          "link": "/面试题/2019/异步/setTimeout&Promise&Async_Await区别.md"
-        },
-        {
           "text": "异步的解决方案",
           "link": "/面试题/2019/异步/异步的解决方案.md"
+        },
+        {
+          "text": "setTimeout&Promise&Async_Await区别",
+          "link": "/面试题/2019/异步/setTimeout&Promise&Async_Await区别.md"
         }
       ]
     },
@@ -134,20 +134,20 @@ export default {
           "link": "/面试题/2019/手写/手写实现深拷贝.md"
         },
         {
-          "text": "手写防抖debounce和节流throttle",
-          "link": "/面试题/2019/手写/手写防抖debounce和节流throttle.md"
+          "text": "扩展Object.assign实现深拷贝",
+          "link": "/面试题/2019/手写/扩展Object.assign实现深拷贝.md"
         },
         {
-          "text": "模拟实现call和apply",
-          "link": "/面试题/2019/手写/模拟实现call和apply.md"
+          "text": "手写防抖debounce和节流throttle",
+          "link": "/面试题/2019/手写/手写防抖debounce和节流throttle.md"
         },
         {
           "text": "模拟实现bind",
           "link": "/面试题/2019/手写/模拟实现bind.md"
         },
         {
-          "text": "扩展Object.assign实现深拷贝",
-          "link": "/面试题/2019/手写/扩展Object.assign实现深拷贝.md"
+          "text": "模拟实现call和apply",
+          "link": "/面试题/2019/手写/模拟实现call和apply.md"
         },
         {
           "text": "模拟实现new操作符",
@@ -171,12 +171,12 @@ export default {
           "link": "/面试题/2019/CSS/介绍下BFC及其应用.md"
         },
         {
-          "text": "如何覆盖important的内联width属性",
-          "link": "/面试题/2019/CSS/如何覆盖important的内联width属性.md"
-        },
-        {
           "text": "多行文本溢出省略效果",
           "link": "/面试题/2019/CSS/多行文本溢出省略效果.md"
+        },
+        {
+          "text": "如何覆盖important的内联width属性",
+          "link": "/面试题/2019/CSS/如何覆盖important的内联width属性.md"
         },
         {
           "text": "比较opacity和visibility和display隐藏元素的优劣",
@@ -196,12 +196,16 @@ export default {
           "link": "/面试题/2019/实战/华为德科面试.md"
         },
         {
+          "text": "开思时代面试",
+          "link": "/面试题/2019/实战/开思时代面试.md"
+        },
+        {
           "text": "明源云面试",
           "link": "/面试题/2019/实战/明源云面试.md"
         },
         {
-          "text": "开思时代面试",
-          "link": "/面试题/2019/实战/开思时代面试.md"
+          "text": "涂鸦科技面试",
+          "link": "/面试题/2019/实战/涂鸦科技面试.md"
         },
         {
           "text": "腾讯CDC面试",
@@ -216,10 +220,6 @@ export default {
           "link": "/面试题/2019/实战/阿里蚂蚁保险面试.md"
         },
         {
-          "text": "涂鸦科技面试",
-          "link": "/面试题/2019/实战/涂鸦科技面试.md"
-        },
-        {
           "text": "面试感想",
           "link": "/面试题/2019/实战/面试感想.md"
         }
@@ -229,12 +229,12 @@ export default {
       "text": "2019-网络",
       "children": [
         {
-          "text": "http状态码",
-          "link": "/面试题/2019/网络/http状态码.md"
-        },
-        {
           "text": "浏览器缓存",
           "link": "/面试题/2019/网络/浏览器缓存.md"
+        },
+        {
+          "text": "http状态码",
+          "link": "/面试题/2019/网络/http状态码.md"
         },
         {
           "text": "讲讲XSS和CSRF等攻击及解决方案",
@@ -257,12 +257,12 @@ export default {
           "link": "/面试题/2019/网络/讲讲常见的报文头部字段含义.md"
         },
         {
-          "text": "谈谈三个http版本协议的区别",
-          "link": "/面试题/2019/网络/谈谈三个http版本协议的区别.md"
-        },
-        {
           "text": "谈谈TCP的三次握手和四次挥手",
           "link": "/面试题/2019/网络/谈谈TCP的三次握手和四次挥手.md"
+        },
+        {
+          "text": "谈谈三个http版本协议的区别",
+          "link": "/面试题/2019/网络/谈谈三个http版本协议的区别.md"
         }
       ]
     }

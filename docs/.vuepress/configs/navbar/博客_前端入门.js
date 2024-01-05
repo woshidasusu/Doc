@@ -10,20 +10,20 @@ export default {
       "link": "/博客_前端入门/Angular学习2-CLI命令.md"
     },
     {
-      "text": "Angular学习4-组件",
-      "link": "/博客_前端入门/Angular学习4-组件.md"
-    },
-    {
       "text": "Angular学习3-WebStorm",
       "link": "/博客_前端入门/Angular学习3-WebStorm.md"
     },
     {
-      "text": "前端入门10-JavaScript语法之对象",
-      "link": "/博客_前端入门/前端入门10-JavaScript语法之对象.md"
+      "text": "Angular学习4-组件",
+      "link": "/博客_前端入门/Angular学习4-组件.md"
     },
     {
       "text": "前端入门1-基础概念",
       "link": "/博客_前端入门/前端入门1-基础概念.md"
+    },
+    {
+      "text": "前端入门10-JavaScript语法之对象",
+      "link": "/博客_前端入门/前端入门10-JavaScript语法之对象.md"
     },
     {
       "text": "前端入门11-JavaScript语法之数组",
@@ -38,12 +38,12 @@ export default {
       "link": "/博客_前端入门/前端入门13-JavaScript进阶之原型.md"
     },
     {
-      "text": "前端入门15-JavaScript进阶之原型链",
-      "link": "/博客_前端入门/前端入门15-JavaScript进阶之原型链.md"
-    },
-    {
       "text": "前端入门14-JavaScript进阶之继承",
       "link": "/博客_前端入门/前端入门14-JavaScript进阶之继承.md"
+    },
+    {
+      "text": "前端入门15-JavaScript进阶之原型链",
+      "link": "/博客_前端入门/前端入门15-JavaScript进阶之原型链.md"
     },
     {
       "text": "前端入门16-JavaScript进阶之EC和VO",
@@ -86,12 +86,12 @@ export default {
       "link": "/博客_前端入门/前端入门24-响应式布局-Bootstrap.md"
     },
     {
-      "text": "前端入门25-学学TypeScript",
-      "link": "/博客_前端入门/前端入门25-学学TypeScript.md"
-    },
-    {
       "text": "前端入门26-前端工程化",
       "link": "/博客_前端入门/前端入门26-前端工程化.md"
+    },
+    {
+      "text": "前端入门25-学学TypeScript",
+      "link": "/博客_前端入门/前端入门25-学学TypeScript.md"
     },
     {
       "text": "前端入门26-学学TypeScript",
@@ -110,6 +110,10 @@ export default {
       "link": "/博客_前端入门/前端入门5-CSS-flex.md"
     },
     {
+      "text": "前端入门6-JavaScript-客户端api&jQurey",
+      "link": "/博客_前端入门/前端入门6-JavaScript-客户端api&jQurey.md"
+    },
+    {
       "text": "前端入门7-JavaScript语法之相关术语",
       "link": "/博客_前端入门/前端入门7-JavaScript语法之相关术语.md"
     },
@@ -120,10 +124,6 @@ export default {
     {
       "text": "前端入门9-JavaScript语法之运算符",
       "link": "/博客_前端入门/前端入门9-JavaScript语法之运算符.md"
-    },
-    {
-      "text": "前端入门6-JavaScript-客户端api&jQurey",
-      "link": "/博客_前端入门/前端入门6-JavaScript-客户端api&jQurey.md"
     }
   ]
 }
