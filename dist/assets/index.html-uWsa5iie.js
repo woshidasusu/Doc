@@ -1,0 +1,1 @@
+import{_ as o,o as n,c,a as e,b as t}from"./app-pwInIdNR.js";const s={},a=e("p",null,[t("::: slot footer MIT Licensed | Copyright © 2023 | "),e("a",{href:"https://beian.miit.gov.cn/",target:"_blank"},"闽ICP备2024028723号"),t(" :::")],-1),r=[a];function _(i,l){return n(),c("div",null,r)}const f=o(s,[["render",_],["__file","index.html.vue"]]);export{f as default};
