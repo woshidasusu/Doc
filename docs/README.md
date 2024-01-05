@@ -32,9 +32,8 @@ features:
     details: 发表博客的平台
   - title: uidoc
     details: 自研的UI组件使用说明平台（主要是扩展了 md 语法，方便编写组件文档）
-footer: MIT Licensed | Copyright © 2023 | 
 ---
 
-::: slot footer
+<div class="footer">
 MIT Licensed | Copyright © 2023 | <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备2024028723号</a>
-:::
+</div>
