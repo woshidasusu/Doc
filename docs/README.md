@@ -3,7 +3,7 @@ home: true
 title: 首页
 heroImage: /images/wx.png
 actions:
-  - text: 博客圆
+  - text: 博客园
     link: https://www.cnblogs.com/dasusu/
     type: secondary
   - text: uidoc
@@ -22,7 +22,7 @@ actions:
 features:
   - title: 本平台
     details: 基于 vuepress 构建的博客、笔记平台
-  - title: 博客圆
+  - title: 博客园
     details: 发表博客的平台
   - title: uidoc
     details: 自研的UI组件使用说明平台（主要是扩展了 md 语法，方便编写组件文档）
