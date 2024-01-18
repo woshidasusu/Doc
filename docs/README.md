@@ -10,7 +10,7 @@ actions:
     link: http://59.110.12.45:9002/
     type: secondary
   - text: lowcode
-    link: http://59.110.12.45:9002/
+    link: http://59.110.12.45:9004/
     type: secondary
   - text: Jenkins
     link: http://59.110.12.45:9001/
