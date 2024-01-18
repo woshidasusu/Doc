@@ -38,6 +38,15 @@ export default {
       ]
     },
     {
+      "text": "FTP超时问题",
+      "children": [
+        {
+          "text": "记录apache的FTPClient一些问题",
+          "link": "/博客_Android/FTP超时问题/记录apache的FTPClient一些问题.md"
+        }
+      ]
+    },
+    {
       "text": "Animation动画原理",
       "children": [
         {
@@ -47,20 +56,11 @@ export default {
       ]
     },
     {
-      "text": "Fresco二次封装",
+      "text": "Fragment",
       "children": [
         {
-          "text": "借鉴Glide二次封装Fresco",
-          "link": "/博客_Android/Fresco二次封装/借鉴Glide二次封装Fresco.md"
-        }
-      ]
-    },
-    {
-      "text": "FTP超时问题",
-      "children": [
-        {
-          "text": "记录apache的FTPClient一些问题",
-          "link": "/博客_Android/FTP超时问题/记录apache的FTPClient一些问题.md"
+          "text": "再来一篇Fragment懒加载",
+          "link": "/博客_Android/Fragment/再来一篇Fragment懒加载.md"
         }
       ]
     },
@@ -74,11 +74,11 @@ export default {
       ]
     },
     {
-      "text": "Fragment",
+      "text": "Fresco二次封装",
       "children": [
         {
-          "text": "再来一篇Fragment懒加载",
-          "link": "/博客_Android/Fragment/再来一篇Fragment懒加载.md"
+          "text": "借鉴Glide二次封装Fresco",
+          "link": "/博客_Android/Fresco二次封装/借鉴Glide二次封装Fresco.md"
         }
       ]
     },
@@ -101,6 +101,15 @@ export default {
       ]
     },
     {
+      "text": "Maven本地仓库VerifyingAvailability",
+      "children": [
+        {
+          "text": "Maven本地仓库埋坑-Verifying Availability",
+          "link": "/博客_Android/Maven本地仓库VerifyingAvailability/Maven本地仓库埋坑-Verifying Availability.md"
+        }
+      ]
+    },
+    {
       "text": "MarqueeTextView",
       "link": "/博客_Android/MarqueeTextView/README.md",
       "children": [
@@ -111,29 +120,11 @@ export default {
       ]
     },
     {
-      "text": "Maven本地仓库VerifyingAvailability",
-      "children": [
-        {
-          "text": "Maven本地仓库埋坑-Verifying Availability",
-          "link": "/博客_Android/Maven本地仓库VerifyingAvailability/Maven本地仓库埋坑-Verifying Availability.md"
-        }
-      ]
-    },
-    {
       "text": "TextView的各种长度测量",
       "children": [
         {
           "text": "TextView各种长度测量",
           "link": "/博客_Android/TextView的各种长度测量/TextView各种长度测量.md"
-        }
-      ]
-    },
-    {
-      "text": "TextView绘制过程",
-      "children": [
-        {
-          "text": "TextView绘制过程",
-          "link": "/博客_Android/TextView绘制过程/TextView绘制过程.md"
         }
       ]
     },
@@ -156,15 +147,6 @@ export default {
       ]
     },
     {
-      "text": "Volley组件封装",
-      "children": [
-        {
-          "text": "继续封装个Volley组件",
-          "link": "/博客_Android/Volley组件封装/继续封装个Volley组件.md"
-        }
-      ]
-    },
-    {
       "text": "blur组件封装",
       "children": [
         {
@@ -174,20 +156,29 @@ export default {
       ]
     },
     {
+      "text": "Volley组件封装",
+      "children": [
+        {
+          "text": "继续封装个Volley组件",
+          "link": "/博客_Android/Volley组件封装/继续封装个Volley组件.md"
+        }
+      ]
+    },
+    {
+      "text": "TextView绘制过程",
+      "children": [
+        {
+          "text": "TextView绘制过程",
+          "link": "/博客_Android/TextView绘制过程/TextView绘制过程.md"
+        }
+      ]
+    },
+    {
       "text": "加密解密编码解码",
       "children": [
         {
           "text": "加密解密那点事",
           "link": "/博客_Android/加密解密编码解码/加密解密那点事.md"
-        }
-      ]
-    },
-    {
-      "text": "断点续传",
-      "children": [
-        {
-          "text": "讲讲断点续传那点事",
-          "link": "/博客_Android/断点续传/讲讲断点续传那点事.md"
         }
       ]
     },
@@ -206,6 +197,15 @@ export default {
         {
           "text": "系统应用集成和so文件加载",
           "link": "/博客_Android/系统应用集成和so文件加载/系统应用集成和so文件加载.md"
+        }
+      ]
+    },
+    {
+      "text": "断点续传",
+      "children": [
+        {
+          "text": "讲讲断点续传那点事",
+          "link": "/博客_Android/断点续传/讲讲断点续传那点事.md"
         }
       ]
     },
@@ -444,12 +444,12 @@ export default {
           "link": "/博客_Android/build.gradle的解析/gradle学习.md"
         },
         {
-          "text": "groovy介绍",
-          "link": "/博客_Android/build.gradle的解析/groovy介绍.md"
-        },
-        {
           "text": "gradle的android插件讲解",
           "link": "/博客_Android/build.gradle的解析/gradle的android插件讲解.md"
+        },
+        {
+          "text": "groovy介绍",
+          "link": "/博客_Android/build.gradle的解析/groovy介绍.md"
         },
         {
           "text": "如何用Android Studio看build.gradle相关源码",

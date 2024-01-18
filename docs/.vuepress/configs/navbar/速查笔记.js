@@ -2,16 +2,12 @@ export default {
   "text": "速查笔记",
   "children": [
     {
+      "text": "java速查",
+      "link": "/速查笔记/java速查/README.md"
+    },
+    {
       "text": "linux速查",
       "link": "/速查笔记/linux速查/README.md"
-    },
-    {
-      "text": "nginx速查",
-      "link": "/速查笔记/nginx速查/README.md"
-    },
-    {
-      "text": "云服务速查",
-      "link": "/速查笔记/云服务速查/README.md"
     },
     {
       "text": "psql速查",
@@ -22,8 +18,12 @@ export default {
       "link": "/速查笔记/vim速查/README.md"
     },
     {
-      "text": "java速查",
-      "link": "/速查笔记/java速查/README.md"
+      "text": "nginx速查",
+      "link": "/速查笔记/nginx速查/README.md"
+    },
+    {
+      "text": "云服务速查",
+      "link": "/速查笔记/云服务速查/README.md"
     },
     {
       "text": "docker-compose速查",

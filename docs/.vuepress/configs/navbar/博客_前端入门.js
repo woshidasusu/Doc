@@ -18,12 +18,12 @@ export default {
       "link": "/博客_前端入门/Angular学习4-组件.md"
     },
     {
-      "text": "前端入门1-基础概念",
-      "link": "/博客_前端入门/前端入门1-基础概念.md"
-    },
-    {
       "text": "前端入门10-JavaScript语法之对象",
       "link": "/博客_前端入门/前端入门10-JavaScript语法之对象.md"
+    },
+    {
+      "text": "前端入门1-基础概念",
+      "link": "/博客_前端入门/前端入门1-基础概念.md"
     },
     {
       "text": "前端入门11-JavaScript语法之数组",
@@ -86,12 +86,12 @@ export default {
       "link": "/博客_前端入门/前端入门24-响应式布局-Bootstrap.md"
     },
     {
-      "text": "前端入门26-前端工程化",
-      "link": "/博客_前端入门/前端入门26-前端工程化.md"
-    },
-    {
       "text": "前端入门25-学学TypeScript",
       "link": "/博客_前端入门/前端入门25-学学TypeScript.md"
+    },
+    {
+      "text": "前端入门26-前端工程化",
+      "link": "/博客_前端入门/前端入门26-前端工程化.md"
     },
     {
       "text": "前端入门26-学学TypeScript",
