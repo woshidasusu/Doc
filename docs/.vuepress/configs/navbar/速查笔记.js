@@ -10,16 +10,16 @@ export default {
       "link": "/速查笔记/linux速查/README.md"
     },
     {
-      "text": "psql速查",
-      "link": "/速查笔记/psql速查/README.md"
-    },
-    {
       "text": "vim速查",
       "link": "/速查笔记/vim速查/README.md"
     },
     {
       "text": "nginx速查",
       "link": "/速查笔记/nginx速查/README.md"
+    },
+    {
+      "text": "psql速查",
+      "link": "/速查笔记/psql速查/README.md"
     },
     {
       "text": "云服务速查",

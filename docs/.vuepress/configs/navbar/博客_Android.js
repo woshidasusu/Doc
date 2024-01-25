@@ -47,11 +47,11 @@ export default {
       ]
     },
     {
-      "text": "Animation动画原理",
+      "text": "Fresco二次封装",
       "children": [
         {
-          "text": "View动画Animation原理",
-          "link": "/博客_Android/Animation动画原理/View动画Animation原理.md"
+          "text": "借鉴Glide二次封装Fresco",
+          "link": "/博客_Android/Fresco二次封装/借鉴Glide二次封装Fresco.md"
         }
       ]
     },
@@ -74,15 +74,6 @@ export default {
       ]
     },
     {
-      "text": "Fresco二次封装",
-      "children": [
-        {
-          "text": "借鉴Glide二次封装Fresco",
-          "link": "/博客_Android/Fresco二次封装/借鉴Glide二次封装Fresco.md"
-        }
-      ]
-    },
-    {
       "text": "GoogleTvDemo探究",
       "children": [
         {
@@ -92,20 +83,20 @@ export default {
       ]
     },
     {
+      "text": "Animation动画原理",
+      "children": [
+        {
+          "text": "View动画Animation原理",
+          "link": "/博客_Android/Animation动画原理/View动画Animation原理.md"
+        }
+      ]
+    },
+    {
       "text": "Json解析时注意事项",
       "children": [
         {
           "text": "移动端造假数据的坑又名Json数据需注意的点",
           "link": "/博客_Android/Json解析时注意事项/移动端造假数据的坑又名Json数据需注意的点.md"
-        }
-      ]
-    },
-    {
-      "text": "Maven本地仓库VerifyingAvailability",
-      "children": [
-        {
-          "text": "Maven本地仓库埋坑-Verifying Availability",
-          "link": "/博客_Android/Maven本地仓库VerifyingAvailability/Maven本地仓库埋坑-Verifying Availability.md"
         }
       ]
     },
@@ -120,11 +111,20 @@ export default {
       ]
     },
     {
-      "text": "TextView的各种长度测量",
+      "text": "Maven本地仓库VerifyingAvailability",
       "children": [
         {
-          "text": "TextView各种长度测量",
-          "link": "/博客_Android/TextView的各种长度测量/TextView各种长度测量.md"
+          "text": "Maven本地仓库埋坑-Verifying Availability",
+          "link": "/博客_Android/Maven本地仓库VerifyingAvailability/Maven本地仓库埋坑-Verifying Availability.md"
+        }
+      ]
+    },
+    {
+      "text": "TextView绘制过程",
+      "children": [
+        {
+          "text": "TextView绘制过程",
+          "link": "/博客_Android/TextView绘制过程/TextView绘制过程.md"
         }
       ]
     },
@@ -138,20 +138,20 @@ export default {
       ]
     },
     {
+      "text": "TextView的各种长度测量",
+      "children": [
+        {
+          "text": "TextView各种长度测量",
+          "link": "/博客_Android/TextView的各种长度测量/TextView各种长度测量.md"
+        }
+      ]
+    },
+    {
       "text": "View的Measure机制",
       "children": [
         {
           "text": "View的Measure机制",
           "link": "/博客_Android/View的Measure机制/View的Measure机制.md"
-        }
-      ]
-    },
-    {
-      "text": "blur组件封装",
-      "children": [
-        {
-          "text": "封装个 Android 的高斯模糊组件",
-          "link": "/博客_Android/blur组件封装/封装个 Android 的高斯模糊组件.md"
         }
       ]
     },
@@ -165,11 +165,11 @@ export default {
       ]
     },
     {
-      "text": "TextView绘制过程",
+      "text": "blur组件封装",
       "children": [
         {
-          "text": "TextView绘制过程",
-          "link": "/博客_Android/TextView绘制过程/TextView绘制过程.md"
+          "text": "封装个 Android 的高斯模糊组件",
+          "link": "/博客_Android/blur组件封装/封装个 Android 的高斯模糊组件.md"
         }
       ]
     },
@@ -192,15 +192,6 @@ export default {
       ]
     },
     {
-      "text": "系统应用集成和so文件加载",
-      "children": [
-        {
-          "text": "系统应用集成和so文件加载",
-          "link": "/博客_Android/系统应用集成和so文件加载/系统应用集成和so文件加载.md"
-        }
-      ]
-    },
-    {
       "text": "断点续传",
       "children": [
         {
@@ -210,15 +201,11 @@ export default {
       ]
     },
     {
-      "text": "AndroidGradle权威指南笔记",
+      "text": "系统应用集成和so文件加载",
       "children": [
         {
-          "text": "Android Gradle权威指南--读书笔记(上)",
-          "link": "/博客_Android/AndroidGradle权威指南笔记/Android Gradle权威指南--读书笔记(上).md"
-        },
-        {
-          "text": "读书笔记--Android Gradle权威指南(下)",
-          "link": "/博客_Android/AndroidGradle权威指南笔记/读书笔记--Android Gradle权威指南(下).md"
+          "text": "系统应用集成和so文件加载",
+          "link": "/博客_Android/系统应用集成和so文件加载/系统应用集成和so文件加载.md"
         }
       ]
     },
@@ -232,6 +219,19 @@ export default {
         {
           "text": "两个提高效率的AndroidStudio小技巧",
           "link": "/博客_Android/AndroidStudio小技巧/两个提高效率的AndroidStudio小技巧.md"
+        }
+      ]
+    },
+    {
+      "text": "AndroidGradle权威指南笔记",
+      "children": [
+        {
+          "text": "Android Gradle权威指南--读书笔记(上)",
+          "link": "/博客_Android/AndroidGradle权威指南笔记/Android Gradle权威指南--读书笔记(上).md"
+        },
+        {
+          "text": "读书笔记--Android Gradle权威指南(下)",
+          "link": "/博客_Android/AndroidGradle权威指南笔记/读书笔记--Android Gradle权威指南(下).md"
         }
       ]
     },

@@ -1,1 +1,0 @@
-import{_ as t,o,c,a as e,b as s}from"./app-xJrSpaa5.js";const a={},n=e("div",{class:"footer"},[s(" MIT Licensed | Copyright © 2023 | "),e("a",{href:"https://beian.miit.gov.cn/",target:"_blank"},"闽ICP备2024028723号")],-1),r=[n];function _(i,d){return o(),c("div",null,r)}const f=t(a,[["render",_],["__file","index.html.vue"]]);export{f as default};
